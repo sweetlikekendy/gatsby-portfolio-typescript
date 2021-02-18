@@ -13,6 +13,8 @@
   },
   "sideEffects": false,
   "dependencies": {
+    "@emotion/react": "^11.1.5",
+    "@emotion/styled": "^11.1.5",
     "gatsby": "next",
     "gatsby-plugin-typography": "next",
     "react": "^16.12.0",
