@@ -1,0 +1,83 @@
+{
+  "projects": [
+    {
+      "title": "Chinatown Community Development Center",
+      "techStack": ["html5", "css3"],
+      "imgSrc": "../images/ccdc.png",
+      "imgAlt": "Chinatown Community Development Center Preview",
+      "type": "Client Work",
+      "description": "Redesign of a careers landing page.",
+      "demoLink": "https://chinatowncdc.applytojob.com/apply/"
+    },
+    {
+      "title": "Nanocraft CBD",
+      "techStack": ["shopify", "html5", "css3", "javascript"],
+      "imgSrc": "../images/nanocraftcbd.png",
+      "imgAlt": "Nanocraft CBD Preview",
+      "type": "Client Work",
+      "description": "Redesigned product landing pages. Added more features to already existing theme",
+      "demoLink": "http://nanocraftcbd.com/"
+    },
+    {
+      "title": "PETLYcbd",
+      "techStack": ["shopify", "html5", "css3", "javascript"],
+      "imgSrc": "../images/petlycbd.png",
+      "imgAlt": "PETLYcbd Preview",
+      "type": "Client Work",
+      "description": "Added more features to already existing theme",
+      "demoLink": "http://petlycbd.com/"
+    },
+    {
+      "title": "Smart Landscape SD",
+      "techStack": [
+        "html5",
+        "css3",
+        "javascript",
+        "react",
+        "gatsby",
+        "sanity",
+        "netlify"
+      ],
+      "imgSrc": "../images/smartlandscape.png",
+      "imgAlt": "Smart Landscape SD Preview",
+      "type": "Client Work",
+      "description": "Redesign of another landscaping business page. The form on the old website was not working, redesigned to have form on every single page.",
+      "demoLink": "http://smartlandscapesd.com/"
+    },
+    {
+      "title": "Calvine Landscape",
+      "techStack": [
+        "html5",
+        "css3",
+        "javascript",
+        "react",
+        "gatsby",
+        "sanity",
+        "netlify"
+      ],
+      "imgSrc": "../images/calvine landscape.png",
+      "imgAlt": "Calvine Landscape SD Preview",
+      "type": "Client Work",
+      "description": "Redesigned a client's landscaping business page. Using Gatsby as a foundation, page speed greatly increased.",
+      "demoLink": "http://calvinelandscape.com/"
+    },
+    {
+      "title": "Let Me In",
+      "techStack": [
+        "html5",
+        "css3",
+        "javascript",
+        "react",
+        "node",
+        "express",
+        "mongodb"
+      ],
+      "imgSrc": "../images/let-me-in.png",
+      "imgAlt": "Let Me In Preview",
+      "type": "Personal Project",
+      "description": "A CRUD application that allows a user to add a home to a database with the corresponding gate/access code. The user will be able to search for the home when they're on route. The search mechanics are case-sensitive.",
+      "demoLink": "https://protected-oasis-33800.herokuapp.com/",
+      "repoLink": "https://github.com/sweetlikekendy/access-house-react-express-mongo"
+    }
+  ]
+}
