@@ -1,9 +1,10 @@
-import React from "react"
-import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai"
+import React from "react";
+import { PageProps } from "gatsby";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
-export default function Footer() {
-  const date = new Date()
-  const year = date.getFullYear()
+const Footer: React.FC<PageProps> = () => {
+  const date = new Date();
+  const year = date.getFullYear();
 
   return (
     <footer className="flex-shrink-0 bg-blueGray-50 mt-10 sm:mt-12 lg:mt-16">
@@ -45,5 +46,7 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
+
+export default Footer;

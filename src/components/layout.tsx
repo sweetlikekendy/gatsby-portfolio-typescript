@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Global, css } from "@emotion/react";
 import "twin.macro";
-import Footer from "./tailwind";
-import Header from "./tailwind";
+import { Header, Footer } from "./tailwind";
 
 import { rhythm } from "../utils/typography";
 
@@ -59,7 +58,7 @@ const MainLayout: React.FC = ({ children }) => {
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
       {/* <div
     style={{

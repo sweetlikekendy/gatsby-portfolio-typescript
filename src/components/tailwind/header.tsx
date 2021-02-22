@@ -6,7 +6,7 @@ import { SecondaryButton, PrimaryButton } from "../../styles";
 import tw from "twin.macro";
 import PartialNavLink from "../../styles/partial-nav-link";
 
-const Header: React.FC<PageProps> = (props) => {
+const Header: React.FC<PageProps> = () => {
   const [open, setOpen] = useState(false);
   const handleMobileMenuToggle = () => setOpen(!open);
 
@@ -40,7 +40,6 @@ const Header: React.FC<PageProps> = (props) => {
             <AnchorLink
               to="/#portfolio"
               title="Kendy Nguyen"
-              activeStyle={tw`border-blue-500 text-blue-600 border-b-2 inline-flex items-center`}
               className="stripped text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-700 active:text-blue-800"
             >
               Portfolio
