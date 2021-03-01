@@ -1,6 +1,11 @@
-import React from "react"
+import React from "react";
 
-export default function SecondaryButton({ children, isSmall, ...rest }) {
+type Props = {
+  children: string | JSX.Element | JSX.Element[];
+  isSmall?: boolean;
+};
+
+const SecondaryButton: React.FC<Props> = ({ children, isSmall, ...rest }) => {
   if (isSmall) {
     return (
       <span
@@ -9,7 +14,7 @@ export default function SecondaryButton({ children, isSmall, ...rest }) {
       >
         {children}
       </span>
-    )
+    );
   }
 
   return (
@@ -19,5 +24,7 @@ export default function SecondaryButton({ children, isSmall, ...rest }) {
     >
       {children}
     </span>
-  )
-}
+  );
+};
+
+export default SecondaryButton;

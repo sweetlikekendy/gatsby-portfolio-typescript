@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/react"
-import React from "react"
-import Img from "gatsby-image"
-import { getFluidGatsbyImage } from "gatsby-source-sanity"
-import clientConfig from "../../client-config.js"
-import tw, { css } from "twin.macro"
-import { StyledLink } from "../styles/index.js"
+import { jsx } from "@emotion/react";
+import React from "react";
+import Img from "gatsby-image";
+import { getFluidGatsbyImage } from "gatsby-source-sanity";
+import clientConfig from "../../client-config.js";
+import tw, { css } from "twin.macro";
+import { StyledLink } from "../styles";
 
-export default function Figure({ node }) {
+const Figure = ({ node }) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._ref,
     { maxWidth: 800 },
     clientConfig.sanity
-  )
+  );
   return (
     <figure>
       <Img tw="w-full h-72 mb-3" fluid={fluidProps} alt={node.alt} />
@@ -34,5 +34,7 @@ export default function Figure({ node }) {
         )}
       </figcaption>
     </figure>
-  )
-}
+  );
+};
+
+export default Figure;

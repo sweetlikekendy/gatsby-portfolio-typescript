@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Link, PageProps } from "gatsby";
+import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { GrClose, GrMenu } from "react-icons/gr";
-import { SecondaryButton, PrimaryButton } from "../../styles";
+import { SecondaryButton, PartialNavLink, PrimaryButton } from "../../styles";
 import tw from "twin.macro";
-import PartialNavLink from "../../styles/partial-nav-link";
 
-const Header: React.FC<PageProps> = () => {
+const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const handleMobileMenuToggle = () => setOpen(!open);
 

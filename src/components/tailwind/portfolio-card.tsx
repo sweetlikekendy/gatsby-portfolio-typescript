@@ -1,9 +1,23 @@
-import React from "react"
-import Img from "gatsby-image"
-import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai"
-import { PrimaryButton, SecondaryButton } from "../../styles"
+import React from "react";
+import Img from "gatsby-image";
+import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai";
+import { PrimaryButton, SecondaryButton } from "../../styles";
 
-export default function PortfolioCard({
+type Props = {
+  demoLink: string;
+  description: string;
+  imgAlt: string;
+  imgSrc: {
+    childImageSharp: {
+      fluid: {};
+    };
+  };
+  repoLink: string;
+  type: string;
+  title: string;
+};
+
+const PortfolioCard: React.FC<Props> = ({
   demoLink,
   description,
   imgAlt,
@@ -12,7 +26,7 @@ export default function PortfolioCard({
   type,
   title,
   ...rest
-}) {
+}) => {
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden rounded-md"
@@ -87,5 +101,7 @@ export default function PortfolioCard({
         </div>
       )}
     </div>
-  )
-}
+  );
+};
+
+export default PortfolioCard;

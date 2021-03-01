@@ -1,9 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import { PrimaryButton } from "../../styles"
+import React from "react";
+import { useStaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import { PrimaryButton } from "../../styles";
 
-export default function TailwindHero() {
+const Hero: React.FC = () => {
   const { desktopImage } = useStaticQuery(graphql`
     query {
       desktopImage: file(
@@ -16,7 +16,7 @@ export default function TailwindHero() {
         }
       }
     }
-  `)
+  `);
 
   return (
     <div className="max-w-6xl mx-auto relative bg-white overflow-hidden">
@@ -76,5 +76,7 @@ export default function TailwindHero() {
         {/* </section> */}
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Hero;

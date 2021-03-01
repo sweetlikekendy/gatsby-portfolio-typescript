@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { Global, css } from "@emotion/react";
 import "twin.macro";
 import { Header, Footer } from "./tailwind";
 
-import { rhythm } from "../utils/typography";
+type Props = {
+  children: JSX.Element | JSX.Element[];
+};
 
-const MainLayout: React.FC = ({ children }) => {
+const MainLayout: React.FC<Props> = ({ children }) => {
   const [showWebsiteStatusBanner, setShowWebsiteStatusBanner] = useState(true);
 
   return (

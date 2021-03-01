@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import tw from "twin.macro"
+import React from "react";
+import { Link } from "gatsby";
+import tw from "twin.macro";
 
-export default function PartialNavLink(props) {
+const PartialNavLink: React.FC = (props) => {
   // this link will be active when itself or deeper routes
   // are current
   const isPartiallyActive = ({ isPartiallyCurrent }) => {
@@ -11,8 +11,8 @@ export default function PartialNavLink(props) {
           className:
             "text-blue-600 inline-flex items-center text-base font-medium px-4 py-2 hover:text-blue-800 active:text-blue-900",
         }
-      : {}
-  }
+      : {};
+  };
   return (
     <Link
       getProps={isPartiallyActive}
@@ -21,5 +21,7 @@ export default function PartialNavLink(props) {
     >
       {props.children}
     </Link>
-  )
-}
+  );
+};
+
+export default PartialNavLink;

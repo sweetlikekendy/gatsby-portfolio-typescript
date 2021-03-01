@@ -1,10 +1,9 @@
 import React from "react";
-import { PageProps } from "gatsby";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
-const Footer: React.FC<PageProps> = () => {
-  const date = new Date();
-  const year = date.getFullYear();
+const Footer: React.FC = () => {
+  const date: Date = new Date();
+  const year: number = date.getFullYear();
 
   return (
     <footer className="flex-shrink-0 bg-blueGray-50 mt-10 sm:mt-12 lg:mt-16">
