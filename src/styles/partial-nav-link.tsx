@@ -1,8 +1,12 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import tw from "twin.macro";
 
-const PartialNavLink: React.FC = (props) => {
+interface IProps {
+  children: React.ReactNode;
+}
+
+const PartialNavLink = ({ children, ...props }: IProps) => {
   // this link will be active when itself or deeper routes
   // are current
   const isPartiallyActive = ({ isPartiallyCurrent }) => {
@@ -16,10 +20,10 @@ const PartialNavLink: React.FC = (props) => {
   return (
     <Link
       getProps={isPartiallyActive}
-      className="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-600 active:text-blue-700"
+      tw="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-600 active:text-blue-700"
       {...props}
     >
-      {props.children}
+      {children}
     </Link>
   );
 };
