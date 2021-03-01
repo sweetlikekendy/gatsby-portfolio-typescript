@@ -3,11 +3,11 @@ import { Global, css } from "@emotion/react";
 import "twin.macro";
 import { Header, Footer } from "./tailwind";
 
-type Props = {
-  children: JSX.Element | JSX.Element[];
-};
+interface IProps {
+  children: ReactNode;
+}
 
-const MainLayout: React.FC<Props> = ({ children }) => {
+const MainLayout = ({ children, ...rest }: IProps) => {
   const [showWebsiteStatusBanner, setShowWebsiteStatusBanner] = useState(true);
 
   return (
