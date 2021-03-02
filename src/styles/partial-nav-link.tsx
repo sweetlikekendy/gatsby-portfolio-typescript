@@ -1,12 +1,9 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import tw from "twin.macro";
+import { IChildrenProps } from "../interfaces";
 
-interface IProps {
-  children: React.ReactNode;
-}
-
-const PartialNavLink = ({ children, ...props }: IProps) => {
+const PartialNavLink = ({ children, ...props }: IChildrenProps) => {
   // this link will be active when itself or deeper routes
   // are current
   const isPartiallyActive = ({ isPartiallyCurrent }) => {
