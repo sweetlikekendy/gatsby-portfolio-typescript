@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import tw from "twin.macro";
 import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";

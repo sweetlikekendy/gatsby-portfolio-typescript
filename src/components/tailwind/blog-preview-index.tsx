@@ -1,5 +1,4 @@
-import React from "react";
-import { StyledLink } from "../../styles";
+import * as React from "react";
 import { format } from "date-fns";
 import { Link } from "gatsby";
 import { CategoryTag } from "../../styles";
