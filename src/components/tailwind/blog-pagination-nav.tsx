@@ -1,19 +1,26 @@
-import React from "react"
-import { Link } from "gatsby"
-import tw from "twin.macro"
-import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi"
+import React from "react";
+import { Link } from "gatsby";
+import tw from "twin.macro";
+import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
+
+interface IBlogPaginationNavProps {
+  postsPerPage: number;
+  totalCount: number;
+  currentPage: number;
+  base: number;
+}
 
 export default function BlogPaginationNav({
   postsPerPage,
   totalCount,
   currentPage,
   base,
-}) {
-  const totalPages = Math.ceil(totalCount / postsPerPage)
-  const prevPage = currentPage - 1
-  const nextPage = currentPage + 1
-  const hasNextPage = nextPage <= totalPages
-  const hasPrevPage = prevPage >= 1
+}: IBlogPaginationNavProps) {
+  const totalPages = Math.ceil(totalCount / postsPerPage);
+  const prevPage = currentPage - 1;
+  const nextPage = currentPage + 1;
+  const hasNextPage = nextPage <= totalPages;
+  const hasPrevPage = prevPage >= 1;
 
   return (
     <nav className="border-t border-blueGray-200 px-0 flex items-center justify-between">
@@ -56,5 +63,5 @@ export default function BlogPaginationNav({
         )}
       </div>
     </nav>
-  )
+  );
 }
