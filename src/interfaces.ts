@@ -7,7 +7,7 @@ export interface IChildrenProps {
 export interface IPrimaryButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
-  type: string;
+  type: "button" | "submit" | "reset" | undefined;
 }
 export interface IExternalPrimaryButtonProps {
   children: React.ReactNode;
