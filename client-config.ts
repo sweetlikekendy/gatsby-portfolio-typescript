@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   sanity: {
     projectId: "oehoh5py",
     dataset: "production",
