@@ -1,11 +1,7 @@
-import React from "react";
+import * as React from "react";
+import { IButtonProps } from "../interfaces";
 
-type Props = {
-  children: string | JSX.Element | JSX.Element[];
-  isSmall?: boolean;
-};
-
-const SecondaryButton: React.FC<Props> = ({ children, isSmall, ...rest }) => {
+const SecondaryButton = ({ children, isSmall, ...rest }: IButtonProps) => {
   if (isSmall) {
     return (
       <span
