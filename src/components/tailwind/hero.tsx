@@ -1,7 +1,7 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import { PrimaryButton } from "../../styles";
+import { ExternalPrimaryButton } from "../../styles";
 
 const Hero: React.FC = () => {
   const { desktopImage } = useStaticQuery(graphql`
@@ -53,13 +53,9 @@ const Hero: React.FC = () => {
               and responsive websites with a mobile-first mentality!
             </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-start">
-              <a
-                href="mailto:kendyhnguyen1991@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <PrimaryButton>Get in touch</PrimaryButton>
-              </a>
+              <ExternalPrimaryButton href="mailto:kendyhnguyen1991@gmail.com">
+                Get in touch
+              </ExternalPrimaryButton>
             </div>
           </div>
 

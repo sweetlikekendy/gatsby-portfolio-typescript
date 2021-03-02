@@ -1,23 +1,25 @@
-import React, { useState } from "react"
-import { useForm } from "react-hook-form"
-import { AiOutlineMail } from "react-icons/ai"
-import { ContactConfirmationModal } from "."
-import { PrimaryButton, StyledLink } from "../../styles"
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { AiOutlineMail } from "react-icons/ai";
+import { ContactConfirmationModal } from ".";
+import { PrimaryButton, StyledLink } from "../../styles";
 
 export default function Contact() {
-  const [message, setMessage] = useState("Nothing to report!")
+  const [message, setMessage] = useState("Nothing to report!");
   const [modalState, setModalState] = useState({
     isOpen: false,
     isSuccess: false,
-  })
+  });
 
-  const { register, handleSubmit, errors, formState, reset } = useForm()
+  const { register, handleSubmit, errors, formState, reset } = useForm();
 
-  const encode = data => {
+  const encode = (data) => {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&")
-  }
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
 
   const onSubmit = (formData, event) => {
     fetch(`/`, {
@@ -25,38 +27,38 @@ export default function Contact() {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact-me", ...formData }),
     })
-      .then(response => {
-        const { status } = response
+      .then((response) => {
+        const { status } = response;
 
         switch (status) {
           case 200:
             // setSuccessAlert(true)
-            setModalState({ isOpen: true, isSuccess: true })
+            setModalState({ isOpen: true, isSuccess: true });
             setMessage(
               "Thank you for reaching to me 😁 I will reply to your message ASAP."
-            )
-            reset()
-            break
+            );
+            reset();
+            break;
           case 400:
             // setErrorAlert(true)
-            setModalState({ isOpen: true, isSuccess: false })
+            setModalState({ isOpen: true, isSuccess: false });
             setMessage(
               "Hmm...unable to send your message. Double check the form and try again. If this error message shows up again, please try again later."
-            )
-            break
+            );
+            break;
           case 404:
             // setErrorAlert(true)
-            setModalState({ isOpen: true, isSuccess: false })
-            setMessage("The server cannot be found! Please try again later.")
-            break
+            setModalState({ isOpen: true, isSuccess: false });
+            setMessage("The server cannot be found! Please try again later.");
+            break;
         }
-        console.log(response)
+        console.log(response);
       })
-      .catch(error => {
-        console.log(error)
-      })
-    event.preventDefault()
-  }
+      .catch((error) => {
+        console.log(error);
+      });
+    event.preventDefault();
+  };
 
   return (
     // Remove negative margin if you use this form and it's not on the bottom on top of the footer
@@ -216,9 +218,7 @@ export default function Contact() {
                   <textarea name="trap-card" ref={register()}></textarea>
                 </div>
                 <div>
-                  <button type="submit">
-                    <PrimaryButton>Submit</PrimaryButton>
-                  </button>
+                  <PrimaryButton type="submit">Submit</PrimaryButton>
                 </div>
               </fieldset>
             </form>
@@ -226,5 +226,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  )
+  );
 }
