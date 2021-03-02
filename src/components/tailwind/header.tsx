@@ -2,16 +2,35 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { GrClose, GrMenu } from "react-icons/gr";
-import { SecondaryButton, PartialNavLink, PrimaryButton } from "../../styles";
+import {
+  ExternalSecondaryButton,
+  PartialNavLink,
+  ExternalPrimaryButton,
+} from "../../styles";
 import tw from "twin.macro";
 
 const Header = () => {
+  const [scrolledHeight, setScrolledHeight] = React.useState(0);
   const [open, setOpen] = React.useState(false);
+
+  const findScrolledHeight = () => {
+    const yScrollAmount = window.scrollY;
+    return setScrolledHeight(yScrollAmount);
+  };
+
   const handleMobileMenuToggle = () => setOpen(!open);
 
+  React.useEffect(() => {
+    window.addEventListener("scroll", findScrolledHeight);
+  }, [scrolledHeight]);
+
   return (
-    <div className="flex-shrink-0 relative bg-white">
-      <div className="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-8 sm:px-8 md:space-x-10">
+    <div
+      className={`sticky top-0 z-20 ${
+        scrolledHeight > 100 && `shadow-md`
+      } flex-shrink-0 relative bg-white`}
+    >
+      <div className="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-4 sm:px-8 md:space-x-10 lg:py-6">
         <div>
           <Link to="/" className="flex">
             <span className="sr-only">Home</span>
@@ -24,7 +43,6 @@ const Header = () => {
         <div className="md:hidden">
           <button
             type="button"
-            stripHash
             className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-600 hover:text-blueGray-700 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             onClick={() => handleMobileMenuToggle()}
           >
@@ -43,14 +61,15 @@ const Header = () => {
             >
               Portfolio
             </AnchorLink>
-            <a
-              href="mailto:kendyhnguyen1991@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-8 inline-flex items-center justify-center "
-            >
-              <SecondaryButton isSmall> Contact me </SecondaryButton>
-            </a>
+            <div className="ml-8 inline-flex items-center justify-center ">
+              <ExternalSecondaryButton
+                href="mailto:kendyhnguyen1991@gmail.com"
+                isSmall
+              >
+                {" "}
+                Contact me{" "}
+              </ExternalSecondaryButton>
+            </div>
           </div>
         </nav>
       </div>
@@ -60,8 +79,8 @@ const Header = () => {
       "duration-100 ease-in" From: "opacity-100 scale-100" To: "opacity-0
       scale-95" --> */}
       {open && (
-        <div className="z-20 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-blueGray-50">
+        <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+          <div className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-blueGray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
@@ -98,13 +117,9 @@ const Header = () => {
               </div>
             </div>
             <div className="py-6 px-5">
-              <a
-                href="mailto:kendyhnguyen1991@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <PrimaryButton>Contact Me</PrimaryButton>
-              </a>
+              <ExternalPrimaryButton href="mailto:kendyhnguyen1991@gmail.com">
+                Contact Me
+              </ExternalPrimaryButton>
             </div>
           </div>
         </div>
