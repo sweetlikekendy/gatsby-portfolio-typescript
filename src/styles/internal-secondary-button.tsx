@@ -1,31 +1,32 @@
 import * as React from "react";
-import { IButtonProps } from "../interfaces";
+import { Link } from "gatsby";
+import { IInternalButtonProps } from "../interfaces";
 
-export default function SecondaryButton({
+export default function InternalSecondaryButton({
   children,
   isSmall,
-  type,
+  to,
   ...rest
-}: IButtonProps) {
+}: IInternalButtonProps) {
   if (isSmall) {
     return (
-      <button
-        type={type}
+      <Link
+        to={to}
         className="w-full flex items-center justify-center px-4 py-2 shadow-sm rounded-md text-base font-medium text-blue-700 bg-blue-100 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blue-100"
         {...rest}
       >
         {children}
-      </button>
+      </Link>
     );
   }
 
   return (
-    <button
-      type={type}
+    <Link
+      to={to}
       className="w-full flex items-center justify-center px-8 py-3 shadow-sm rounded-md text-base font-medium text-blue-700 bg-blue-100 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-blue-100 md:py-4 "
       {...rest}
     >
       {children}
-    </button>
+    </Link>
   );
 }

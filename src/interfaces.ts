@@ -4,18 +4,18 @@ export interface IChildrenProps {
   children: React.ReactNode;
 }
 
-export interface IPrimaryButtonProps {
+export interface IButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
   type: "button" | "submit" | "reset" | undefined;
 }
-export interface IExternalPrimaryButtonProps {
+export interface IExternalButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
   href?: string;
 }
-export interface IInternalPrimaryButtonProps {
+export interface IInternalButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
-  to?: string;
+  to: string;
 }

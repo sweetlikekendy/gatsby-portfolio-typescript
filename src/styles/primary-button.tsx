@@ -1,12 +1,12 @@
 import * as React from "react";
-import { IPrimaryButtonProps } from "../interfaces";
+import { IButtonProps } from "../interfaces";
 
 export default function PrimaryButton({
   children,
   isSmall,
   type,
   ...rest
-}: IPrimaryButtonProps) {
+}: IButtonProps) {
   if (isSmall) {
     return (
       <button
