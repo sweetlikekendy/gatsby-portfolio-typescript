@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { GrClose, GrMenu } from "react-icons/gr";
@@ -6,7 +6,7 @@ import { SecondaryButton, PartialNavLink, PrimaryButton } from "../../styles";
 import tw from "twin.macro";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
   const handleMobileMenuToggle = () => setOpen(!open);
 
   return (
