@@ -5,7 +5,7 @@ import { GrClose, GrMenu } from "react-icons/gr";
 import { SecondaryButton, PartialNavLink, PrimaryButton } from "../../styles";
 import tw from "twin.macro";
 
-const Header: React.FC = () => {
+const Header = () => {
   const [open, setOpen] = useState(false);
   const handleMobileMenuToggle = () => setOpen(!open);
 
