@@ -7,7 +7,7 @@ import {
   PartialNavLink,
   ExternalPrimaryButton,
 } from "../../styles";
-import tw from "twin.macro";
+import "twin.macro";
 
 const Header = () => {
   const [scrolledHeight, setScrolledHeight] = React.useState(0);
@@ -26,42 +26,44 @@ const Header = () => {
 
   return (
     <div
+      tw=" flex-shrink-0 bg-white"
       className={`sticky top-0 z-20 ${
         scrolledHeight > 100 && `shadow-md`
-      } flex-shrink-0 relative bg-white`}
+      } relative`}
     >
-      <div className="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-4 sm:px-8 md:space-x-10 lg:py-6">
+      <div tw="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-4 sm:px-8 md:space-x-10 lg:py-5">
         <div>
-          <Link to="/" className="flex">
-            <span className="sr-only">Home</span>
-            <p className="text-3xl font-bold text-blue-700 tracking-wider md:text-4xl lg:text-6xl">
+          <Link to="/" tw="flex">
+            <span tw="sr-only">Home</span>
+            <p tw="text-3xl font-bold text-blue-700 tracking-wider md:text-4xl lg:text-6xl">
               KN
             </p>
           </Link>
         </div>
-        {/* <div className="-mr-2 -my-2 md:hidden"> */}
-        <div className="md:hidden">
+        {/* <div tw="-mr-2 -my-2 md:hidden"> */}
+        <div tw="md:hidden">
           <button
             type="button"
-            className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-600 hover:text-blueGray-700 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-600 hover:text-blueGray-700 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
             onClick={() => handleMobileMenuToggle()}
           >
-            <span className="sr-only">Open menu</span>
-            <GrMenu className="h-6 w-6" />
+            <span tw="sr-only">Open menu</span>
+            <GrMenu tw="h-6 w-6" />
           </button>
         </div>
 
-        <nav className="flex space-x-10 hidden md:block">
-          <div className="flex items-center md:ml-12">
+        <nav tw="flex space-x-10 hidden md:block">
+          <div tw="flex items-center md:ml-12">
             <PartialNavLink to="/blog">Blog</PartialNavLink>
             <AnchorLink
               to="/#portfolio"
               title="Kendy Nguyen"
-              className="stripped text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-700 active:text-blue-800"
+              tw="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-700 active:text-blue-800"
+              className="stripped"
             >
               Portfolio
             </AnchorLink>
-            <div className="ml-8 inline-flex items-center justify-center ">
+            <div tw="ml-8 inline-flex items-center justify-center ">
               <ExternalSecondaryButton
                 href="mailto:kendyhnguyen1991@gmail.com"
                 isSmall
@@ -79,44 +81,43 @@ const Header = () => {
       "duration-100 ease-in" From: "opacity-100 scale-100" To: "opacity-0
       scale-95" --> */}
       {open && (
-        <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
-          <div className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-blueGray-50">
-            <div className="pt-5 pb-6 px-5">
-              <div className="flex items-center justify-between">
+        <div tw="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+          <div tw="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-blueGray-50">
+            <div tw="pt-5 pb-6 px-5">
+              <div tw="flex items-center justify-between">
                 <div>
-                  <Link to="/" className="flex">
-                    <span className="sr-only">Home</span>
-                    <p className="text-3xl font-bold text-blue-700 tracking-wider">
+                  <Link to="/" tw="flex">
+                    <span tw="sr-only">Home</span>
+                    <p tw="text-3xl font-bold text-blue-700 tracking-wider">
                       KN
                     </p>
                   </Link>
                 </div>
-                <div className="-mr-2">
+                <div tw="-mr-2">
                   <button
                     type="button"
-                    // activeStyle={tw`border-blue-500 text-blue-600 border-b-2 inline-flex items-center`}
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-400 hover:text-blueGray-600 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                    tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-400 hover:text-blueGray-600 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
                     onClick={() => handleMobileMenuToggle()}
                   >
-                    <span className="sr-only">Close menu</span>
-                    <GrClose className="h-6 w-6" />
+                    <span tw="sr-only">Close menu</span>
+                    <GrClose tw="h-6 w-6" />
                   </button>
                 </div>
               </div>
-              <div className="mt-6">
-                <nav className="grid gap-6">
+              <div tw="mt-6">
+                <nav tw="grid gap-6">
                   <PartialNavLink to="/blog">Blog</PartialNavLink>
                   <AnchorLink
                     to="/#portfolio"
                     title="Kendy Nguyen"
-                    className="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blueGray-800 active:text-blue-700"
+                    tw="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blueGray-800 active:text-blue-700"
                   >
                     Portfolio
                   </AnchorLink>
                 </nav>
               </div>
             </div>
-            <div className="py-6 px-5">
+            <div tw="py-6 px-5">
               <ExternalPrimaryButton href="mailto:kendyhnguyen1991@gmail.com">
                 Contact Me
               </ExternalPrimaryButton>

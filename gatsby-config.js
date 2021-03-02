@@ -6,7 +6,7 @@ module.exports = {
     title: `Kendy Nguyen`,
     description: `Kendy Nguyen's Portfolio`,
     author: `@kendynguyen`,
-    siteName: `Using TypeScript Example`,
+    siteName: `Kendy Nguyen`,
     exampleUrl: `https://github.com/gatsbyjs/gatsby/tree/master/examples/using-typescript`,
   },
   plugins: [

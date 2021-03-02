@@ -1,7 +1,7 @@
 import * as React from "react";
 import Img from "gatsby-image";
 import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai";
-import { PrimaryButton, SecondaryButton } from "../../styles";
+import { ExternalPrimaryButton, ExternalSecondaryButton } from "../../styles";
 export interface IPortfolioCardProps {
   demoLink: string;
   description: string;
@@ -71,29 +71,17 @@ const PortfolioCard = ({
           <div className="mt-6 flex items-center">
             <div className="flex-1 mt-5 flex flex-col sm:flex-row sm:justify-start lg:flex-col xl:flex-row">
               {demoLink && (
-                <a
-                  className=""
-                  href={demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                >
-                  <PrimaryButton isSmall>
-                    View demo <AiFillPlayCircle className="ml-2" />
-                  </PrimaryButton>
-                </a>
+                <ExternalPrimaryButton href={demoLink} isSmall>
+                  View demo <AiFillPlayCircle className="ml-2" />
+                </ExternalPrimaryButton>
               )}
               {repoLink && (
-                <a
-                  className="mt-2 sm:mt-0 sm:ml-2 lg:mt-2 lg:ml-0 xl:mt-0 xl:ml-2"
-                  href={repoLink}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                >
-                  <SecondaryButton isSmall>
+                <div className="mt-2 sm:mt-0 sm:ml-2 lg:mt-2 lg:ml-0 xl:mt-0 xl:ml-2">
+                  <ExternalSecondaryButton href={repoLink} isSmall>
                     Source code
                     <AiFillGithub className="ml-2" />
-                  </SecondaryButton>
-                </a>
+                  </ExternalSecondaryButton>
+                </div>
               )}
             </div>
           </div>
