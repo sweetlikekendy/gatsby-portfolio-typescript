@@ -8,7 +8,15 @@ export interface IPortfolioCardProps {
   imgAlt: string;
   imgSrc: {
     childImageSharp: {
-      fluid: {};
+      fluid: {
+        aspectRatio: number;
+        base64: string;
+        sizes: string;
+        src: string;
+        srcSet: string;
+        srcSetWebp: string;
+        srcWebp: string;
+      };
     };
   };
   repoLink: string;
@@ -26,6 +34,7 @@ const PortfolioCard = ({
   title,
   ...rest
 }: IPortfolioCardProps) => {
+  console.log(imgSrc);
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden rounded-md"
