@@ -1,16 +1,29 @@
-import React from "react"
-import { Link } from "gatsby"
-import { format } from "date-fns"
-import "twin.macro"
-import { CategoryTag } from "../../styles"
+import * as React from "react";
+import { Link } from "gatsby";
+import { format } from "date-fns";
+import "twin.macro";
+import { CategoryTag } from "../../styles";
 
-export default function SearchResults({ results }) {
-  const base = process.env.GATSBY_BLOG_URL || "/blog"
+export interface IBlogPost {
+  author: string;
+  category: string;
+  description: string;
+  publishedAt: string;
+  slug: string;
+  text: string[];
+  title: string;
+}
+export interface ISearchResultsProps {
+  results: IBlogPost[];
+}
+
+export default function SearchResults({ results }: ISearchResultsProps) {
+  const base = process.env.GATSBY_BLOG_URL || "/blog";
 
   return (
     <div tw="max-w-2xl mx-auto">
       <ul tw="absolute z-10 top-0 mt-16 max-w-2xl bg-white divide-blueGray-300 divide-y rounded-md shadow-2xl">
-        {results.map(post => (
+        {results.map((post) => (
           <li key={post.slug} tw="relative p-4 hover:bg-blueGray-100">
             <div tw="mb-3 flex justify-between space-x-3">
               <div tw="flex-1 min-w-0">
@@ -34,5 +47,5 @@ export default function SearchResults({ results }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
