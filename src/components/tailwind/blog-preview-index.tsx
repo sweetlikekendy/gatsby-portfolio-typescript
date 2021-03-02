@@ -1,8 +1,16 @@
-import React from "react"
-import { StyledLink } from "../../styles"
-import { format } from "date-fns"
-import { Link } from "gatsby"
-import { CategoryTag } from "../../styles"
+import React from "react";
+import { StyledLink } from "../../styles";
+import { format } from "date-fns";
+import { Link } from "gatsby";
+import { CategoryTag } from "../../styles";
+
+interface IBlogPreviewIndexProps {
+  category: string;
+  title: string;
+  description: string;
+  createdAt: string;
+  slug: string;
+}
 
 export default function BlogPreviewIndex({
   category,
@@ -10,7 +18,7 @@ export default function BlogPreviewIndex({
   description,
   createdAt,
   slug,
-}) {
+}: IBlogPreviewIndexProps) {
   return (
     <div className="flex flex-col">
       <div>
@@ -34,5 +42,5 @@ export default function BlogPreviewIndex({
         </div>
       </div>
     </div>
-  )
+  );
 }
