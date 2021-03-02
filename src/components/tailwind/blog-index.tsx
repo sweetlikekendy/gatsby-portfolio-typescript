@@ -1,9 +1,19 @@
-import { Link } from "gatsby"
-import React from "react"
-import { BlogPreviewIndex } from "."
-import { StyledLink } from "../../styles"
+import { Link } from "gatsby";
+import React from "react";
+import { BlogPreviewIndex } from ".";
+import { StyledLink } from "../../styles";
 
-export default function BlogIndex({ blogPosts }) {
+export interface IBlogIndexProps {
+  blogPosts: {
+    title: string;
+    categories: { title: string }[];
+    description: string;
+    _createdAt: string;
+    slug: { current: string };
+  }[];
+}
+
+export default function BlogIndex({ blogPosts }: IBlogIndexProps) {
   return (
     <div className="max-w-6xl mx-auto bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="relative max-w-lg mx-auto lg:max-w-6xl">
@@ -19,7 +29,7 @@ export default function BlogIndex({ blogPosts }) {
           </p>
         </div>
         <div className="mt-12 grid gap-16 pt-12 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-          {blogPosts.map(blog => (
+          {blogPosts.map((blog) => (
             <BlogPreviewIndex
               key={blog.title}
               category={blog.categories[0].title}
@@ -32,5 +42,5 @@ export default function BlogIndex({ blogPosts }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
