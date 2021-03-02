@@ -1,9 +1,8 @@
-import React from "react";
+import * as React from "react";
 import Img from "gatsby-image";
 import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai";
 import { PrimaryButton, SecondaryButton } from "../../styles";
-
-type Props = {
+export interface IPortfolioCardProps {
   demoLink: string;
   description: string;
   imgAlt: string;
@@ -15,9 +14,9 @@ type Props = {
   repoLink: string;
   type: string;
   title: string;
-};
+}
 
-const PortfolioCard: React.FC<Props> = ({
+const PortfolioCard = ({
   demoLink,
   description,
   imgAlt,
@@ -26,7 +25,7 @@ const PortfolioCard: React.FC<Props> = ({
   type,
   title,
   ...rest
-}) => {
+}: IPortfolioCardProps) => {
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden rounded-md"
