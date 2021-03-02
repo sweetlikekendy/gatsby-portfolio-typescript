@@ -1,8 +1,12 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { IChildrenProps } from "../interfaces";
 
-const PartialNavLink = ({ children, ...props }: IChildrenProps) => {
+export interface IPartialNavLinkProps {
+  children: React.ReactNode;
+  to: string;
+}
+
+const PartialNavLink = ({ children, to, ...rest }: IPartialNavLinkProps) => {
   // this link will be active when itself or deeper routes
   // are current
   const isPartiallyActive = ({ isPartiallyCurrent }) => {
@@ -15,9 +19,10 @@ const PartialNavLink = ({ children, ...props }: IChildrenProps) => {
   };
   return (
     <Link
+      to={to}
       getProps={isPartiallyActive}
       className="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-600 active:text-blue-700"
-      {...props}
+      {...rest}
     >
       {children}
     </Link>
