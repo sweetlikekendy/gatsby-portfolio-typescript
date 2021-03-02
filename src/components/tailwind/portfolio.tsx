@@ -1,9 +1,32 @@
-import React from "react";
+import * as React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PortfolioCard from "./portfolio-card";
 
-export default function Portfolio(props) {
-  console.log(props);
+export interface IPortfolioCardParams {
+  imgSrc: {
+    childImageSharp: {
+      fluid: {
+        aspectRatio: number;
+        base64: string;
+        sizes: string;
+        src: string;
+        srcSet: string;
+        srcSetWebp: string;
+        srcWebp: string;
+      };
+    };
+  };
+  imgAlt: string;
+  type: string;
+  title: string;
+  description: string;
+  demoLink: string;
+  repoLink?: string;
+}
+
+export default function Portfolio(
+  props: React.ComponentPropsWithoutRef<"div">
+) {
   return (
     <StaticQuery
       query={graphql`
@@ -33,7 +56,6 @@ export default function Portfolio(props) {
         }
       `}
       render={(data) => {
-        console.log(data);
         return (
           // add bg color to here if you want it
           <div
@@ -50,49 +72,26 @@ export default function Portfolio(props) {
             </div>
             <div className="mt-12 max-w-lg mx-auto pt-12 grid gap-5 lg:grid-cols-3 lg:max-w-none">
               {data.allDataJson.edges[0].node.projects.map(
-                (project: {
-                  imgSrc: {
-                    childImageSharp: {
-                      fluid: {
-                        aspectRatio: number;
-                        base64: string;
-                        sizes: string;
-                        src: string;
-                        srcSet: string;
-                        srcSetWebp: string;
-                        srcWebp: string;
-                      };
-                    };
-                  };
-                  imgAlt: string;
-                  type: string;
-                  title: string;
-                  description: string;
-                  demoLink: string;
-                  repoLink?: string;
-                }) => {
-                  const {
-                    title,
-                    imgSrc,
-                    imgAlt,
-                    type,
-                    description,
-                    demoLink,
-                    repoLink,
-                  } = project;
-                  return (
-                    <PortfolioCard
-                      key={title}
-                      imgSrc={imgSrc}
-                      imgAlt={imgAlt}
-                      type={type}
-                      title={title}
-                      description={description}
-                      demoLink={demoLink}
-                      repoLink={repoLink}
-                    />
-                  );
-                }
+                ({
+                  title,
+                  imgSrc,
+                  imgAlt,
+                  type,
+                  description,
+                  demoLink,
+                  repoLink,
+                }: IPortfolioCardParams) => (
+                  <PortfolioCard
+                    key={title}
+                    imgSrc={imgSrc}
+                    imgAlt={imgAlt}
+                    type={type}
+                    title={title}
+                    description={description}
+                    demoLink={demoLink}
+                    repoLink={repoLink}
+                  />
+                )
               )}
             </div>
           </div>

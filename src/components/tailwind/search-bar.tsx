@@ -1,8 +1,16 @@
-import React from "react"
-import "twin.macro"
-import { HiOutlineSearch } from "react-icons/hi"
+import React from "react";
+import "twin.macro";
+import { HiOutlineSearch } from "react-icons/hi";
 
-export default function SearchBar({ searchQuery, setSearchQuery }) {
+export interface ISearchBarProps {
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function SearchBar({
+  searchQuery,
+  setSearchQuery,
+}: ISearchBarProps) {
   return (
     <form
       action="/"
@@ -17,7 +25,9 @@ export default function SearchBar({ searchQuery, setSearchQuery }) {
         tw="pr-10 w-full rounded-md text-blueGray-600 placeholder-blueGray-500 border-blueGray-300 focus:placeholder-blueGray-400 focus:ring-blue-500 focus:border-blue-500 focus:shadow-2xl"
         // className={`${textSize} ${fontWeight} ${backgroundColor} ${border}`}
         defaultValue={searchQuery}
-        onInput={e => setSearchQuery(e.target.value)}
+        onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setSearchQuery(e.target.value)
+        }
         type="text"
         name="search"
         placeholder="Search my blogs here"
@@ -27,5 +37,5 @@ export default function SearchBar({ searchQuery, setSearchQuery }) {
         <span className="sr-only">Search</span>
       </button>
     </form>
-  )
+  );
 }
