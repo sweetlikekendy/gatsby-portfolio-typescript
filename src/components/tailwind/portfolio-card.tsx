@@ -19,7 +19,7 @@ export interface IPortfolioCardProps {
       };
     };
   };
-  repoLink: string;
+  repoLink?: string;
   type: string;
   title: string;
 }
@@ -34,7 +34,6 @@ const PortfolioCard = ({
   title,
   ...rest
 }: IPortfolioCardProps) => {
-  console.log(imgSrc);
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden rounded-md"
