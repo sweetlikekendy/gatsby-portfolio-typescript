@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import tw from "twin.macro";
 import { IChildrenProps } from "../interfaces";
 
 const PartialNavLink = ({ children, ...props }: IChildrenProps) => {
@@ -17,7 +16,7 @@ const PartialNavLink = ({ children, ...props }: IChildrenProps) => {
   return (
     <Link
       getProps={isPartiallyActive}
-      tw="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-600 active:text-blue-700"
+      className="text-base font-medium text-blueGray-600 px-4 py-2 hover:text-blue-600 active:text-blue-700"
       {...props}
     >
       {children}
