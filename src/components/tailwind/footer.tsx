@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
-const Footer: React.FC = () => {
+export default function Footer() {
   const date: Date = new Date();
   const year: number = date.getFullYear();
 
@@ -46,6 +46,4 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
