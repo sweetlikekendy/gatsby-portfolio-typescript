@@ -1,9 +1,9 @@
-import React from "react";
+import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import { ExternalPrimaryButton } from "../../styles";
 
-const Hero: React.FC = () => {
+export default function Hero() {
   const { desktopImage } = useStaticQuery(graphql`
     query {
       desktopImage: file(
@@ -73,6 +73,4 @@ const Hero: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Hero;
+}
