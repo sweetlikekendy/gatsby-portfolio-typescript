@@ -3,7 +3,7 @@ import { Global, css } from "@emotion/react";
 import "twin.macro";
 import { Header, Footer } from "./tailwind";
 
-interface IProps {
+export interface IProps {
   children: React.ReactNode;
 }
 
