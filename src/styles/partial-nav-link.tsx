@@ -7,9 +7,12 @@ export interface IPartialNavLinkProps {
 }
 
 const PartialNavLink = ({ children, to, ...rest }: IPartialNavLinkProps) => {
+  interface IPartiallyActive {
+    isPartiallyCurrent: boolean;
+  }
   // this link will be active when itself or deeper routes
   // are current
-  const isPartiallyActive = ({ isPartiallyCurrent }) => {
+  const isPartiallyActive = ({ isPartiallyCurrent }: IPartiallyActive) => {
     return isPartiallyCurrent
       ? {
           className:
