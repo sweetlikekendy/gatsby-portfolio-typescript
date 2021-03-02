@@ -8,34 +8,53 @@ export default function Contact() {
   const [message, setMessage] = React.useState("Nothing to report!");
   const [isModalOpen, setModalOpen] = React.useState(false);
   const [isFormSuccess, setFormSuccess] = React.useState(false);
-  // const [modalState, setModalState] = React.useState({
-  //   isOpen: false,
-  //   isSuccess: false,
-  // });
-
   const { register, handleSubmit, errors, formState, reset } = useForm();
 
-  const encode = (data) => {
+  const encode = (data: {
+    formName: string;
+    email: string;
+    fullName: string;
+    phone: string;
+    subject: string;
+    message: string;
+    trapCard: string;
+  }) => {
     return Object.keys(data)
       .map(
+        // TODO data[key] typescript error
+        // Element implicitly has an 'any' type because expression of type 'string'
+        // can't be used to index type '{ formName: string; email: string; fullName: string;
+        // phone: string; subject: string; message: string; trapCard: string; }'.
+        // No index signature with a parameter of type 'string' was found on type
+        //  '{ formName: string; email: string; fullName: string; phone: string;
+        // subject: string; message: string; trapCard: string; }'.ts(7053)
         (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
       )
       .join("&");
   };
 
-  const onSubmit = (formData, event) => {
+  const onSubmit = (
+    formData: {
+      email: string;
+      fullName: string;
+      phone: string;
+      subject: string;
+      message: string;
+      trapCard: string;
+    },
+    event: React.FormEvent<HTMLInputElement>
+  ) => {
+    event.preventDefault();
     fetch(`/`, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-me", ...formData }),
+      body: encode({ formName: "contact-me", ...formData }),
     })
       .then((response) => {
         const { status } = response;
 
         switch (status) {
           case 200:
-            // setSuccessAlert(true)
-            // setModalState({ isOpen: true, isSuccess: true });
             setModalOpen(true);
             setFormSuccess(true);
             setMessage(
@@ -44,8 +63,6 @@ export default function Contact() {
             reset();
             break;
           case 400:
-            // setErrorAlert(true)
-            // setModalState({ isOpen: true, isSuccess: false });
             setModalOpen(true);
             setFormSuccess(false);
             setMessage(
@@ -53,8 +70,6 @@ export default function Contact() {
             );
             break;
           case 404:
-            // setErrorAlert(true)
-            // setModalState({ isOpen: true, isSuccess: false });
             setModalOpen(true);
             setFormSuccess(false);
             setMessage("The server cannot be found! Please try again later.");
@@ -63,9 +78,9 @@ export default function Contact() {
         console.log(response);
       })
       .catch((error) => {
+        // TODO handle error
         console.log(error);
       });
-    event.preventDefault();
   };
 
   return (
@@ -106,6 +121,7 @@ export default function Contact() {
           <div className="max-w-lg mx-auto lg:max-w-none">
             <form
               method="POST"
+              // TODO onsubmit ts error
               onSubmit={handleSubmit(onSubmit)}
               name="contact-me"
               data-netlify="true"
@@ -124,13 +140,13 @@ export default function Contact() {
                 className="grid grid-cols-1 gap-y-6"
               >
                 <div>
-                  <label htmlFor="full_name" className="sr-only">
+                  <label htmlFor="fullName" className="sr-only">
                     Full name
                   </label>
                   <input
                     type="text"
-                    name="full_name"
-                    id="full_name"
+                    name="fullName"
+                    id="full-name"
                     autoComplete="name"
                     className="block text-blueGray-600 w-full shadow-sm rounded-md py-3 px-4 placeholder-blueGray-500 border-blueGray-300 focus:placeholder-blueGray-400 focus:ring-blue-500 focus:border-blue-500  "
                     placeholder="Full name"
@@ -219,11 +235,11 @@ export default function Contact() {
                   )}
                 </div>
                 <div className="hidden">
-                  <label htmlFor="trap-card">
+                  <label htmlFor="trapCard">
                     Don't activate this bot trap card by filling this input if
                     you're human
                   </label>
-                  <textarea name="trap-card" ref={register()}></textarea>
+                  <textarea name="trapCard" ref={register()}></textarea>
                 </div>
                 <div>
                   <PrimaryButton type="submit">Submit</PrimaryButton>
