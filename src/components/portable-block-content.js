@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/react"
-import React from "react"
-import BlockContent from "@sanity/block-content-to-react"
-import tw, { css } from "twin.macro"
-import serializers from "./serializers"
-import clientConfig from "../../client-config"
+import { jsx } from "@emotion/react";
+import * as React from "react";
+import BlockContent from "@sanity/block-content-to-react";
+import tw, { css } from "twin.macro";
+import serializers from "./serializers";
+import clientConfig from "../../client-config";
 
 export default function PortableBlockContent({ blocks }) {
   return (
@@ -41,5 +41,5 @@ export default function PortableBlockContent({ blocks }) {
       // imageOptions={{ w: 320, h: 240, fit: "max" }}
       {...clientConfig.sanity}
     />
-  )
+  );
 }
