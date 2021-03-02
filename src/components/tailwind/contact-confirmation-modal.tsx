@@ -1,15 +1,23 @@
-import React from "react";
+import * as React from "react";
 import { FiCheck } from "react-icons/fi";
 import { IoWarningOutline } from "react-icons/io5";
+import { PrimaryButton } from "../../styles";
+
+interface IContactConfirmationModalProps {
+  modalState: boolean;
+  setModalState: React.Dispatch<React.SetStateAction<boolean>>;
+  formState: boolean;
+  message: string;
+}
 
 export default function ContactConfirmationModal({
   modalState,
   setModalState,
+  formState,
   message,
-}) {
-  console.log(modalState);
+}: IContactConfirmationModalProps) {
   return (
-    <div className="fixed z-10 inset-0 overflow-y-auto">
+    <div className="fixed z-40 inset-0 overflow-y-auto">
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         {/* <!--
       Background overlay, show/hide based on modal state.
@@ -49,7 +57,7 @@ export default function ContactConfirmationModal({
           aria-labelledby="modal-headline"
         >
           <div>
-            {modalState.isSuccess ? (
+            {formState ? (
               <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
                 <FiCheck className="h-6 w-6 text-green-600" />
               </div>
@@ -63,8 +71,7 @@ export default function ContactConfirmationModal({
                 className="text-lg leading-6 font-medium text-gray-900"
                 id="modal-headline"
               >
-                Message{" "}
-                {modalState.isSuccess ? `successfully` : `unsuccessfully`} sent!
+                Message {formState ? `successfully` : `unsuccessfully`} sent!
               </h3>
               <div className="mt-2">
                 <p className="text-sm text-gray-500">{message}</p>
@@ -72,13 +79,13 @@ export default function ContactConfirmationModal({
             </div>
           </div>
           <div className="mt-5 sm:mt-6">
-            <button
+            <PrimaryButton
               type="button"
-              className="inline-flex justify-center w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:text-sm"
-              onClick={() => setModalState(!modalState.isOpen)}
+              className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-600 focus:ring-offset-2 sm:text-sm"
+              onClick={() => setModalState(!modalState)}
             >
               Click to close
-            </button>
+            </PrimaryButton>
           </div>
         </div>
       </div>

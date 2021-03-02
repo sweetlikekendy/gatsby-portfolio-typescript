@@ -5,9 +5,11 @@ export interface IChildrenProps {
 }
 
 export interface IButtonProps {
+  className?: string;
   children: React.ReactNode;
   isSmall?: boolean;
   type: "button" | "submit" | "reset" | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 export interface IExternalButtonProps {
   children: React.ReactNode;

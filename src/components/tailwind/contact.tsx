@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { ContactConfirmationModal } from ".";
 import { PrimaryButton, StyledLink } from "../../styles";
 
 export default function Contact() {
-  const [message, setMessage] = useState("Nothing to report!");
-  const [modalState, setModalState] = useState({
-    isOpen: false,
-    isSuccess: false,
-  });
+  const [message, setMessage] = React.useState("Nothing to report!");
+  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isFormSuccess, setFormSuccess] = React.useState(false);
+  // const [modalState, setModalState] = React.useState({
+  //   isOpen: false,
+  //   isSuccess: false,
+  // });
 
   const { register, handleSubmit, errors, formState, reset } = useForm();
 
@@ -33,7 +35,9 @@ export default function Contact() {
         switch (status) {
           case 200:
             // setSuccessAlert(true)
-            setModalState({ isOpen: true, isSuccess: true });
+            // setModalState({ isOpen: true, isSuccess: true });
+            setModalOpen(true);
+            setFormSuccess(true);
             setMessage(
               "Thank you for reaching to me 😁 I will reply to your message ASAP."
             );
@@ -41,14 +45,18 @@ export default function Contact() {
             break;
           case 400:
             // setErrorAlert(true)
-            setModalState({ isOpen: true, isSuccess: false });
+            // setModalState({ isOpen: true, isSuccess: false });
+            setModalOpen(true);
+            setFormSuccess(false);
             setMessage(
               "Hmm...unable to send your message. Double check the form and try again. If this error message shows up again, please try again later."
             );
             break;
           case 404:
             // setErrorAlert(true)
-            setModalState({ isOpen: true, isSuccess: false });
+            // setModalState({ isOpen: true, isSuccess: false });
+            setModalOpen(true);
+            setFormSuccess(false);
             setMessage("The server cannot be found! Please try again later.");
             break;
         }
@@ -102,12 +110,12 @@ export default function Contact() {
               name="contact-me"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
-              disabled={formState.isSubmitting}
             >
-              {modalState.isOpen && (
+              {isModalOpen && (
                 <ContactConfirmationModal
-                  modalState={modalState}
-                  setModalState={setModalState}
+                  modalState={isModalOpen}
+                  setModalState={setModalOpen}
+                  formState={isFormSuccess}
                   message={message}
                 />
               )}
@@ -199,7 +207,7 @@ export default function Contact() {
                   <textarea
                     id="message"
                     name="message"
-                    rows="4"
+                    rows={4}
                     className="block text-blueGray-600 w-full shadow-sm rounded-md py-3 px-4 placeholder-blueGray-500 border-blueGray-300 focus:placeholder-blueGray-400 focus:ring-blue-500 focus:border-blue-500  "
                     placeholder="Message"
                     ref={register({ required: "Required" })}
