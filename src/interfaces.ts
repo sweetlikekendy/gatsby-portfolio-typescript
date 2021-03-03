@@ -52,6 +52,46 @@ export interface PageContextPage {
   };
 }
 
+export interface PostData {
+  categories: Categories[];
+  description: string;
+  mainImage: ImageProps;
+  publishedAt: string;
+  updatedAt: string;
+  slug: { current: string };
+  title: string;
+  _createdAt: string;
+  _updatedAt: string;
+  _rawBody?: any[] | any;
+}
+
+export interface StoreFromQuery {
+  author: string;
+  category: string;
+  description: string;
+  publishedAt: string;
+  slug: string;
+  text: any[] | any;
+  title: string;
+}
+
+export interface LocalSearchPages {
+  index: string;
+  store: StoreFromQuery;
+}
+
+export interface BlogPostQuery {
+  nodes: PostData[];
+  totalCount: number;
+}
+export interface BlogData {
+  posts: {
+    nodes: PostData[];
+    totalCount: number;
+  };
+  localSearchPages: LocalSearchPages;
+}
+
 export interface PageContext {
   base: string;
   next: PageContextPage;

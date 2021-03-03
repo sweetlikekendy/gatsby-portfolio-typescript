@@ -2,7 +2,8 @@
 import { jsx } from "@emotion/react";
 import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
-import tw, { css } from "twin.macro";
+import tw from "twin.macro";
+import { css } from "@emotion/react";
 import serializers from "./serializers";
 import clientConfig from "../../client-config";
 

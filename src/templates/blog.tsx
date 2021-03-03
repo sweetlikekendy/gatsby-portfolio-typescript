@@ -12,7 +12,7 @@ import {
   SearchResults,
 } from "../components/tailwind";
 
-import { Categories, ImageProps, PageContext } from "../interfaces";
+import { BlogData, PageContext, StoreFromQuery } from "../interfaces";
 
 export const unflattenResults = (results: StoreFromQuery[]) =>
   results.map((post) => {
@@ -20,40 +20,8 @@ export const unflattenResults = (results: StoreFromQuery[]) =>
     return { slug, frontmatter: { title } };
   });
 
-export interface Post {
-  categories: Categories[];
-  description: string;
-  mainImage: ImageProps;
-  publishedAt: string;
-  slug: { current: string };
-  title: string;
-  _createdAt: string;
-  _updatedAt: string;
-}
-
-export interface StoreFromQuery {
-  author: string;
-  category: string;
-  description: string;
-  publishedAt: string;
-  slug: string;
-  text: any[] | any;
-  title: string;
-}
-
-export interface LocalSearchPages {
-  index: string;
-  store: StoreFromQuery;
-}
-
 export interface BlogProps {
-  data: {
-    posts: {
-      nodes: Post[];
-      totalCount: number;
-    };
-    localSearchPages: LocalSearchPages;
-  };
+  data: BlogData;
   pageContext: {
     base: string;
     next: PageContext;
@@ -67,7 +35,6 @@ export interface BlogProps {
 }
 
 export default function Blog({ data, pageContext }: BlogProps) {
-  console.log(data, pageContext);
   const { posts, localSearchPages } = data;
   const { totalCount: totalNumOfPosts, nodes: blogPostsArray } = posts;
   const { index, store } = localSearchPages;
@@ -81,11 +48,9 @@ export default function Blog({ data, pageContext }: BlogProps) {
   const results = useFlexSearch(searchQuery, index, store);
   const searchedPosts = searchQuery ? unflattenResults(results) : posts;
 
-  console.log(blogPostsArray);
-
   return (
     <Layout>
-      <SEO title="Blog Posts" />
+      <SEO title="Blog Posts" description="Kendy's Blogs" />
       <div className="max-w-6xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
         <div tw="relative">
           <SearchBar
@@ -123,7 +88,6 @@ export default function Blog({ data, pageContext }: BlogProps) {
           ) : (
             <div className="my-0 grid gap-16 py-12 sm:my-6 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
               {blogPostsArray.map((post) => (
-                // <pre>{JSON.stringify(post.mainImage.asset.fluid, null, 2)}</pre>
                 <BlogPreview
                   key={post.title}
                   category={post.categories[0].title}
