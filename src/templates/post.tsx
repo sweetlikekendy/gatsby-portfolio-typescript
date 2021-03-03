@@ -1,17 +1,51 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
-import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi"
-import { format } from "date-fns"
-import "twin.macro"
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+import { HiArrowNarrowLeft, HiArrowNarrowRight } from "react-icons/hi";
+import { format } from "date-fns";
+import "twin.macro";
 
-import Layout from "../components/layout"
-import PortableBlockContent from "../components/portable-block-content"
-import { CategoryTag, StyledLink } from "../styles"
+import Layout from "../components/layout";
+import PortableBlockContent from "../components/portable-block-content";
+import { CategoryTag, StyledLink } from "../styles";
+import { IImageProps } from "../interfaces";
 
-export default function Post({ data, pageContext }) {
-  const { post } = data
-  const { prev, next, base } = pageContext
+export interface ICategories {
+  title: string;
+}
+
+export interface IPageContextPageProps {
+  categories: ICategories[];
+  title: string;
+  slug: {
+    current: string;
+  };
+}
+
+export interface IPostProps {
+  data: {
+    post: {
+      categories: ICategories[];
+      publishedAt: string;
+      updatedAt: string;
+      mainImage: IImageProps;
+      title: string;
+      _createdAt: string;
+      _rawBody: any[] | any;
+    };
+  };
+  pageContext: {
+    base: string;
+    next: IPageContextPageProps;
+    prev: IPageContextPageProps;
+    slug: string;
+  };
+}
+
+export default function Post({ data, pageContext }: IPostProps) {
+  console.log(data, pageContext);
+  const { post } = data;
+  const { prev, next, base } = pageContext;
 
   return (
     <Layout>
@@ -33,7 +67,7 @@ export default function Post({ data, pageContext }) {
             <Img
               tw="w-full h-96 mb-3"
               fluid={{ ...post.mainImage.asset.fluid, aspectRatio: 1 }}
-              alt={post.alt}
+              alt={post.mainImage.alt}
             />
           </figure>
           <figcaption tw=" text-blueGray-500 italic sm:text-center">
@@ -94,7 +128,7 @@ export default function Post({ data, pageContext }) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 
 // This needs to be dynamic based on the slug passed in via context in gatsby-node.js
@@ -122,4 +156,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

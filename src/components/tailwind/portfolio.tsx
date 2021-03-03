@@ -1,20 +1,10 @@
 import * as React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PortfolioCard from "./portfolio-card";
-
+import { IGatsbyImageFluidProps } from "../../interfaces";
 export interface IPortfolioCardParams {
   imgSrc: {
-    childImageSharp: {
-      fluid: {
-        aspectRatio: number;
-        base64: string;
-        sizes: string;
-        src: string;
-        srcSet: string;
-        srcSetWebp: string;
-        srcWebp: string;
-      };
-    };
+    childImageSharp: IGatsbyImageFluidProps;
   };
   imgAlt: string;
   type: string;

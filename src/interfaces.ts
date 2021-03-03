@@ -3,7 +3,6 @@ import * as React from "react";
 export interface IChildrenProps {
   children: React.ReactNode;
 }
-
 export interface IButtonProps {
   className?: string;
   children: React.ReactNode;
@@ -20,4 +19,26 @@ export interface IInternalButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
   to: string;
+}
+
+export interface IGatsbyImageFluidProps {
+  fluid: {
+    aspectRatio: number;
+    base64: string;
+    sizes: string;
+    src: string;
+    srcSet: string;
+    srcSetWebp: string;
+    srcWebp: string;
+  };
+}
+
+export interface IImageProps {
+  alt: string;
+  asset: {
+    fluid: IGatsbyImageFluidProps;
+  };
+  caption: string;
+  imageCreditPhotographer: string;
+  imageCreditUrl: string;
 }

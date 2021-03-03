@@ -47,7 +47,7 @@ async function buildPosts({ actions, graphql }) {
           i === 0
             ? `${base}/${post.slug.current}`
             : `${base}/${i + 1}/${post.slug.current}`,
-        component: path.resolve("./src/templates/post.js"),
+        component: path.resolve("./src/templates/post.tsx"),
         context: {
           slug: post.slug.current,
           prev,
