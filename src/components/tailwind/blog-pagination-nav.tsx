@@ -3,19 +3,21 @@ import { Link } from "gatsby";
 import tw from "twin.macro";
 import { HiArrowNarrowRight, HiArrowNarrowLeft } from "react-icons/hi";
 
-interface IBlogPaginationNavProps {
+interface BlogPaginationNavProps {
   postsPerPage: number;
   totalCount: number;
   currentPage: number;
-  base: number;
+  skip: number;
+  base: string;
 }
 
 export default function BlogPaginationNav({
   postsPerPage,
   totalCount,
   currentPage,
+  skip,
   base,
-}: IBlogPaginationNavProps) {
+}: BlogPaginationNavProps) {
   const totalPages = Math.ceil(totalCount / postsPerPage);
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
