@@ -1,27 +1,27 @@
 import * as React from "react";
 
-export interface IChildrenProps {
+export interface ChildrenProps {
   children: React.ReactNode;
 }
-export interface IButtonProps {
+export interface ButtonProps {
   className?: string;
   children: React.ReactNode;
   isSmall?: boolean;
   type: "button" | "submit" | "reset" | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-export interface IExternalButtonProps {
+export interface ExternalButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
   href?: string;
 }
-export interface IInternalButtonProps {
+export interface InternalButtonProps {
   children: React.ReactNode;
   isSmall?: boolean;
   to: string;
 }
 
-export interface IGatsbyImageFluidProps {
+export interface GatsbyImageFluidProps {
   fluid: {
     aspectRatio: number;
     base64: string;
@@ -32,31 +32,31 @@ export interface IGatsbyImageFluidProps {
     srcWebp: string;
   };
 }
-export interface IImageProps {
+export interface ImageProps {
   alt: string;
   asset: {
-    fluid: IGatsbyImageFluidProps;
+    fluid: GatsbyImageFluidProps;
   };
   caption: string;
   imageCreditPhotographer: string;
   imageCreditUrl: string;
 }
 
-export interface ICategories {
+export interface Categories {
   title: string;
 }
 
-export interface IPageContextPage {
-  categories: ICategories[];
+export interface PageContextPage {
+  categories: Categories[];
   title: string;
   slug: {
     current: string;
   };
 }
 
-export interface IPageContext {
+export interface PageContext {
   base: string;
-  next: IPageContextPage;
-  prev: IPageContextPage;
+  next: PageContextPage;
+  prev: PageContextPage;
   slug: string;
 }

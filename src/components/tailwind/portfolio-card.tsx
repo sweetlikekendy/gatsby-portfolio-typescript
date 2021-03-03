@@ -2,13 +2,13 @@ import * as React from "react";
 import Img from "gatsby-image";
 import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai";
 import { ExternalPrimaryButton, ExternalSecondaryButton } from "../../styles";
-import { IGatsbyImageFluidProps } from "../../interfaces";
+import { GatsbyImageFluidProps } from "../../interfaces";
 export interface IPortfolioCardProps {
   demoLink: string;
   description: string;
   imgAlt: string;
   imgSrc: {
-    childImageSharp: IGatsbyImageFluidProps;
+    childImageSharp: GatsbyImageFluidProps;
   };
   repoLink?: string;
   type: string;

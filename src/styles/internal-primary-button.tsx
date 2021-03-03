@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Link } from "gatsby";
-import { IInternalButtonProps } from "../interfaces";
+import { InternalButtonProps } from "../interfaces";
 
 export default function InternalPrimaryButton({
   children,
   isSmall,
   to,
   ...rest
-}: IInternalButtonProps) {
+}: InternalButtonProps) {
   if (isSmall) {
     return (
       <Link

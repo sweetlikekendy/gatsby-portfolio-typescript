@@ -8,21 +8,21 @@ import "twin.macro";
 import Layout from "../components/layout";
 import PortableBlockContent from "../components/portable-block-content";
 import { CategoryTag, StyledLink } from "../styles";
-import { ICategories, IImageProps, IPageContext } from "../interfaces";
+import { Categories, ImageProps, PageContext } from "../interfaces";
 
 export interface PostProps {
   data: {
     post: {
-      categories: ICategories[];
+      categories: Categories[];
       publishedAt: string;
       updatedAt: string;
-      mainImage: IImageProps;
+      mainImage: ImageProps;
       title: string;
       _createdAt: string;
       _rawBody: any[] | any;
     };
   };
-  pageContext: IPageContext;
+  pageContext: PageContext;
 }
 
 export default function Post({ data, pageContext }: PostProps) {

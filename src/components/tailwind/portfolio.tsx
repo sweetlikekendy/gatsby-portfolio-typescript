@@ -1,10 +1,10 @@
 import * as React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PortfolioCard from "./portfolio-card";
-import { IGatsbyImageFluidProps } from "../../interfaces";
+import { GatsbyImageFluidProps } from "../../interfaces";
 export interface IPortfolioCardParams {
   imgSrc: {
-    childImageSharp: IGatsbyImageFluidProps;
+    childImageSharp: GatsbyImageFluidProps;
   };
   imgAlt: string;
   type: string;

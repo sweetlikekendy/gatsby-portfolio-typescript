@@ -1,12 +1,12 @@
 import * as React from "react";
-import { IExternalButtonProps } from "../interfaces";
+import { ExternalButtonProps } from "../interfaces";
 
 export default function ExternalPrimaryButton({
   children,
   isSmall,
   href,
   ...rest
-}: IExternalButtonProps) {
+}: ExternalButtonProps) {
   if (isSmall) {
     return (
       <a

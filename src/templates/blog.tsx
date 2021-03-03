@@ -12,7 +12,7 @@ import {
   SearchResults,
 } from "../components/tailwind";
 
-import { ICategories, IImageProps, IPageContext } from "../interfaces";
+import { Categories, ImageProps, PageContext } from "../interfaces";
 
 export const unflattenResults = (results: StoreFromQuery[]) =>
   results.map((post) => {
@@ -21,9 +21,9 @@ export const unflattenResults = (results: StoreFromQuery[]) =>
   });
 
 export interface Post {
-  categories: ICategories[];
+  categories: Categories[];
   description: string;
-  mainImage: IImageProps;
+  mainImage: ImageProps;
   publishedAt: string;
   slug: { current: string };
   title: string;
@@ -56,8 +56,8 @@ export interface BlogProps {
   };
   pageContext: {
     base: string;
-    next: IPageContext;
-    prev: IPageContext;
+    next: PageContext;
+    prev: PageContext;
     slug: string;
     postsPerPage: number;
     currentPage: number;
