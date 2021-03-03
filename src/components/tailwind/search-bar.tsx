@@ -2,7 +2,7 @@ import * as React from "react";
 import "twin.macro";
 import { HiOutlineSearch } from "react-icons/hi";
 
-export interface ISearchBarProps {
+export interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -10,7 +10,7 @@ export interface ISearchBarProps {
 export default function SearchBar({
   searchQuery,
   setSearchQuery,
-}: ISearchBarProps) {
+}: SearchBarProps) {
   return (
     <form
       action="/"

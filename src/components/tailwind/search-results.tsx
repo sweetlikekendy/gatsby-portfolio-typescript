@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import "twin.macro";
 import { CategoryTag } from "../../styles";
 
-export interface IBlogPost {
+export interface BlogPost {
   author: string;
   category: string;
   description: string;
@@ -13,11 +13,11 @@ export interface IBlogPost {
   text: string[];
   title: string;
 }
-export interface ISearchResultsProps {
-  results: IBlogPost[];
+export interface SearchResultsProps {
+  results: BlogPost[];
 }
 
-export default function SearchResults({ results }: ISearchResultsProps) {
+export default function SearchResults({ results }: SearchResultsProps) {
   const base = process.env.GATSBY_BLOG_URL || "/blog";
 
   return (

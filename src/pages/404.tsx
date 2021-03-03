@@ -4,9 +4,9 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { StyledLink } from "../styles";
 
-const Error404Page: React.FC<PageProps> = () => (
+export default function Error404Page() {
   <Layout>
-    <SEO title="404: Not found" />
+    <SEO title="404: Not found" description="Page does not exists" lang="en" />
     <section className="max-w-6xl mx-auto relative overflow-hidden my-auto px-4 py-8 sm:px-8 lg:py-24 ">
       <div className="text-blueGray-500 text-base">
         <h2 className="text-blueGray-800 text-6xl mb-5">Page not found!</h2>
@@ -30,7 +30,5 @@ const Error404Page: React.FC<PageProps> = () => (
         </p>
       </div>
     </section>
-  </Layout>
-);
-
-export default Error404Page;
+  </Layout>;
+}

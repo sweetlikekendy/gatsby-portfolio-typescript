@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import { Link } from "gatsby";
 import { CategoryTag } from "../../styles";
 
-interface IBlogPreviewIndexProps {
+interface BlogPreviewIndexProps {
   category: string;
   title: string;
   description: string;
@@ -17,7 +17,7 @@ export default function BlogPreviewIndex({
   description,
   createdAt,
   slug,
-}: IBlogPreviewIndexProps) {
+}: BlogPreviewIndexProps) {
   return (
     <div className="flex flex-col">
       <div>

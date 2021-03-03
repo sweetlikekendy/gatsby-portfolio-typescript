@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import { BlogPreviewIndex } from ".";
 import { StyledLink } from "../../styles";
 
-export interface IBlogIndexProps {
+export interface BlogIndexProps {
   blogPosts: {
     title: string;
     categories: { title: string }[];
@@ -13,7 +13,7 @@ export interface IBlogIndexProps {
   }[];
 }
 
-export default function BlogIndex({ blogPosts }: IBlogIndexProps) {
+export default function BlogIndex({ blogPosts }: BlogIndexProps) {
   return (
     <div className="max-w-6xl mx-auto bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="relative max-w-lg mx-auto lg:max-w-6xl">

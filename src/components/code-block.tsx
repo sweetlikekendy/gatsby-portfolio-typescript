@@ -1,7 +1,7 @@
 import * as React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
-export interface ICodeBlockProps {
+export interface CodeBlockProps {
   node: {
     _key: string;
     _type: string;
@@ -10,7 +10,7 @@ export interface ICodeBlockProps {
   };
 }
 
-export default function CodeBlock({ node }: ICodeBlockProps) {
+export default function CodeBlock({ node }: CodeBlockProps) {
   if (!node || !node.code) {
     return null;
   }

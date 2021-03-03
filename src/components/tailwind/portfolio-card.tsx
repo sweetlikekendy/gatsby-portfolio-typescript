@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { AiFillGithub, AiFillPlayCircle } from "react-icons/ai";
 import { ExternalPrimaryButton, ExternalSecondaryButton } from "../../styles";
 import { GatsbyImageFluidProps } from "../../interfaces";
-export interface IPortfolioCardProps {
+export interface PortfolioCardProps {
   demoLink: string;
   description: string;
   imgAlt: string;
@@ -15,7 +15,7 @@ export interface IPortfolioCardProps {
   title: string;
 }
 
-const PortfolioCard = ({
+export default function PortfolioCard({
   demoLink,
   description,
   imgAlt,
@@ -24,7 +24,7 @@ const PortfolioCard = ({
   type,
   title,
   ...rest
-}: IPortfolioCardProps) => {
+}: PortfolioCardProps) {
   return (
     <div
       className="flex flex-col shadow-lg overflow-hidden rounded-md"
@@ -88,6 +88,4 @@ const PortfolioCard = ({
       )}
     </div>
   );
-};
-
-export default PortfolioCard;
+}

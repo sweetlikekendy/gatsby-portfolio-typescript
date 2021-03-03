@@ -6,11 +6,11 @@ import tw, { css } from "twin.macro";
 import serializers from "./serializers";
 import clientConfig from "../../client-config";
 
-export interface IBlockContentProps {
+export interface BlockContentProps {
   blocks: any[] | any;
 }
 
-export default function PortableBlockContent({ blocks }: IBlockContentProps) {
+export default function PortableBlockContent({ blocks }: BlockContentProps) {
   return (
     <BlockContent
       css={css`

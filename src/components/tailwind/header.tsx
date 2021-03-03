@@ -9,7 +9,7 @@ import {
 } from "../../styles";
 import "twin.macro";
 
-const Header = () => {
+export default function Header() {
   const [scrolledHeight, setScrolledHeight] = React.useState(0);
   const [open, setOpen] = React.useState(false);
 
@@ -127,6 +127,4 @@ const Header = () => {
       )}
     </div>
   );
-};
-
-export default Header;
+}

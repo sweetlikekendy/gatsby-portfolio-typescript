@@ -3,7 +3,7 @@ import { FiCheck } from "react-icons/fi";
 import { IoWarningOutline } from "react-icons/io5";
 import { PrimaryButton } from "../../styles";
 
-interface IContactConfirmationModalProps {
+interface ContactConfirmationModalProps {
   modalState: boolean;
   setModalState: React.Dispatch<React.SetStateAction<boolean>>;
   formState: boolean;
@@ -15,7 +15,7 @@ export default function ContactConfirmationModal({
   setModalState,
   formState,
   message,
-}: IContactConfirmationModalProps) {
+}: ContactConfirmationModalProps) {
   return (
     <div className="fixed z-40 inset-0 overflow-y-auto">
       <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">

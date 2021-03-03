@@ -5,7 +5,7 @@ import "twin.macro";
 import clientConfig from "../../client-config";
 import { StyledLink } from "../styles";
 
-export interface IFigureProps {
+export interface FigureProps {
   node: {
     alt: string;
     asset: {
@@ -20,7 +20,7 @@ export interface IFigureProps {
   };
 }
 
-const Figure = ({ node }: IFigureProps) => {
+const Figure = ({ node }: FigureProps) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._ref,
     { maxWidth: 800 },

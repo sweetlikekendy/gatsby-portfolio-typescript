@@ -2,12 +2,9 @@ import * as React from "react";
 import { Global, css } from "@emotion/react";
 import "twin.macro";
 import { Header, Footer } from "./tailwind";
+import { ChildrenProps } from "../interfaces";
 
-export interface IProps {
-  children: React.ReactNode;
-}
-
-const MainLayout = ({ children, ...rest }: IProps) => {
+const MainLayout = ({ children, ...rest }: ChildrenProps) => {
   const [showWebsiteStatusBanner, setShowWebsiteStatusBanner] = React.useState(
     true
   );
