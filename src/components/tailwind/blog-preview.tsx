@@ -3,22 +3,14 @@ import Img from "gatsby-image";
 import { Link } from "gatsby";
 import { format } from "date-fns";
 import { CategoryTag } from "../../styles";
-
-interface IBlogPreviewProps {
+import { GatsbyImageFluidProps } from "../../interfaces";
+interface BlogPreviewProps {
   category: string;
   title: string;
   description: string;
   createdAt: string;
   slug: string;
-  imageSrc: {
-    aspectRatio: number;
-    base64: string;
-    sizes: string;
-    src: string;
-    srcSet: string;
-    srcSetWebp: string;
-    srcWebp: string;
-  };
+  imageSrc: GatsbyImageFluidProps;
   imageAlt: string;
 }
 
@@ -30,7 +22,8 @@ export default function BlogPreview({
   slug,
   imageSrc,
   imageAlt,
-}: IBlogPreviewProps) {
+}: BlogPreviewProps) {
+  console.log(imageSrc);
   return (
     <div className="flex flex-col">
       <div className="mb-4 h-60 w-full overflow-hidden">

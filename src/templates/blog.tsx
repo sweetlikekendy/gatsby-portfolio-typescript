@@ -79,8 +79,9 @@ export default function Blog({ data, pageContext }: BlogProps) {
   const [searchQuery, setSearchQuery] = useState(query || "");
 
   const results = useFlexSearch(searchQuery, index, store);
-  console.log(results);
   const searchedPosts = searchQuery ? unflattenResults(results) : posts;
+
+  console.log(blogPostsArray);
 
   return (
     <Layout>
@@ -122,6 +123,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
           ) : (
             <div className="my-0 grid gap-16 py-12 sm:my-6 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
               {blogPostsArray.map((post) => (
+                // <pre>{JSON.stringify(post.mainImage.asset.fluid, null, 2)}</pre>
                 <BlogPreview
                   key={post.title}
                   category={post.categories[0].title}

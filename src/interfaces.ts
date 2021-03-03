@@ -22,15 +22,13 @@ export interface InternalButtonProps {
 }
 
 export interface GatsbyImageFluidProps {
-  fluid: {
-    aspectRatio: number;
-    base64: string;
-    sizes: string;
-    src: string;
-    srcSet: string;
-    srcSetWebp: string;
-    srcWebp: string;
-  };
+  aspectRatio: number;
+  base64: string;
+  sizes: string;
+  src: string;
+  srcSet: string;
+  srcSetWebp: string;
+  srcWebp: string;
 }
 export interface ImageProps {
   alt: string;
