@@ -74,7 +74,7 @@ async function buildPosts({ actions, graphql }) {
   Array.from({ length: pageCount }).forEach((_, i) => {
     actions.createPage({
       path: i === 0 ? base : `${base}/${i + 1}`,
-      component: path.resolve("./src/templates/blog.js"),
+      component: path.resolve("./src/templates/blog.tsx"),
       // This data is pass to the template when we create it in the form of PageContext
       context: {
         skip: i * postsPerPage,
@@ -101,7 +101,7 @@ async function buildPosts({ actions, graphql }) {
     }).forEach((_, i) => {
       actions.createPage({
         path: i === 0 ? newBase : `${newBase}/${i + 1}`,
-        component: path.resolve("./src/templates/blog.js"),
+        component: path.resolve("./src/templates/blog.tsx"),
         context: {
           category,
           skip: i * postsPerPage,

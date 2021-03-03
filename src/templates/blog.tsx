@@ -1,36 +1,86 @@
-import React, { useState } from "react"
-import Layout from "../components/layout"
-import { graphql, Link } from "gatsby"
-import { useFlexSearch } from "react-use-flexsearch"
-import "twin.macro"
-import SEO from "../components/seo"
-import { StyledLink } from "../styles"
+import React, { useState } from "react";
+import Layout from "../components/layout";
+import { graphql, Link } from "gatsby";
+import { useFlexSearch } from "react-use-flexsearch";
+import "twin.macro";
+import SEO from "../components/seo";
+import { StyledLink } from "../styles";
 import {
   BlogPaginationNav,
   BlogPreview,
   SearchBar,
   SearchResults,
-} from "../components/tailwind"
+} from "../components/tailwind";
 
-export const unflattenResults = results =>
-  results.map(post => {
-    const { date, slug, tags, title } = post
-    return { slug, frontmatter: { title, date, tags } }
-  })
+import { ICategories, IImageProps, IPageContext } from "../interfaces";
 
-export default function Blog({ data, pageContext }) {
-  const { posts, localSearchPages } = data
-  const { totalCount: totalNumOfPosts, nodes: blogPostsArray } = posts
-  const { index, store } = localSearchPages
-  const { category, postsPerPage, currentPage, skip, base } = pageContext
+export const unflattenResults = (results: StoreFromQuery[]) =>
+  results.map((post) => {
+    const { slug, title } = post;
+    return { slug, frontmatter: { title } };
+  });
+
+export interface Post {
+  categories: ICategories[];
+  description: string;
+  mainImage: IImageProps;
+  publishedAt: string;
+  slug: { current: string };
+  title: string;
+  _createdAt: string;
+  _updatedAt: string;
+}
+
+export interface StoreFromQuery {
+  author: string;
+  category: string;
+  description: string;
+  publishedAt: string;
+  slug: string;
+  text: any[] | any;
+  title: string;
+}
+
+export interface LocalSearchPages {
+  index: string;
+  store: StoreFromQuery;
+}
+
+export interface BlogProps {
+  data: {
+    posts: {
+      nodes: Post[];
+      totalCount: number;
+    };
+    localSearchPages: LocalSearchPages;
+  };
+  pageContext: {
+    base: string;
+    next: IPageContext;
+    prev: IPageContext;
+    slug: string;
+    postsPerPage: number;
+    currentPage: number;
+    skip: number;
+    category: string;
+  };
+}
+
+export default function Blog({ data, pageContext }: BlogProps) {
+  console.log(data, pageContext);
+  const { posts, localSearchPages } = data;
+  const { totalCount: totalNumOfPosts, nodes: blogPostsArray } = posts;
+  const { index, store } = localSearchPages;
+  const { category, postsPerPage, currentPage, skip, base } = pageContext;
 
   // Search related vars
-  const { search } = typeof window !== "undefined" && window.location
-  const query = new URLSearchParams(search).get("s")
-  const [searchQuery, setSearchQuery] = useState(query || "")
+  const { search } = typeof window !== "undefined" && window.location;
+  const query = new URLSearchParams(search).get("s");
+  const [searchQuery, setSearchQuery] = useState(query || "");
 
-  const results = useFlexSearch(searchQuery, index, store)
-  const searchedPosts = searchQuery ? unflattenResults(results) : posts
+  const results = useFlexSearch(searchQuery, index, store);
+  console.log(results);
+  const searchedPosts = searchQuery ? unflattenResults(results) : posts;
 
   return (
     <Layout>
@@ -71,7 +121,7 @@ export default function Blog({ data, pageContext }) {
             </div>
           ) : (
             <div className="my-0 grid gap-16 py-12 sm:my-6 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
-              {blogPostsArray.map(post => (
+              {blogPostsArray.map((post) => (
                 <BlogPreview
                   key={post.title}
                   category={post.categories[0].title}
@@ -80,7 +130,7 @@ export default function Blog({ data, pageContext }) {
                   createdAt={post._createdAt}
                   slug={`${post.slug.current}`}
                   imageSrc={post.mainImage.asset.fluid}
-                  imageAlt={post.imageAlt}
+                  imageAlt={post.mainImage.alt}
                 />
               ))}
             </div>
@@ -95,7 +145,7 @@ export default function Blog({ data, pageContext }) {
         />
       </div>
     </Layout>
-  )
+  );
 }
 
 export const query = graphql`
@@ -137,4 +187,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

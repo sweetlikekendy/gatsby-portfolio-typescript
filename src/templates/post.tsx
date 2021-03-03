@@ -8,21 +8,9 @@ import "twin.macro";
 import Layout from "../components/layout";
 import PortableBlockContent from "../components/portable-block-content";
 import { CategoryTag, StyledLink } from "../styles";
-import { IImageProps } from "../interfaces";
+import { ICategories, IImageProps, IPageContext } from "../interfaces";
 
-export interface ICategories {
-  title: string;
-}
-
-export interface IPageContextPageProps {
-  categories: ICategories[];
-  title: string;
-  slug: {
-    current: string;
-  };
-}
-
-export interface IPostProps {
+export interface PostProps {
   data: {
     post: {
       categories: ICategories[];
@@ -34,16 +22,10 @@ export interface IPostProps {
       _rawBody: any[] | any;
     };
   };
-  pageContext: {
-    base: string;
-    next: IPageContextPageProps;
-    prev: IPageContextPageProps;
-    slug: string;
-  };
+  pageContext: IPageContext;
 }
 
-export default function Post({ data, pageContext }: IPostProps) {
-  console.log(data, pageContext);
+export default function Post({ data, pageContext }: PostProps) {
   const { post } = data;
   const { prev, next, base } = pageContext;
 

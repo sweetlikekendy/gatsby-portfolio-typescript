@@ -32,7 +32,6 @@ export interface IGatsbyImageFluidProps {
     srcWebp: string;
   };
 }
-
 export interface IImageProps {
   alt: string;
   asset: {
@@ -41,4 +40,23 @@ export interface IImageProps {
   caption: string;
   imageCreditPhotographer: string;
   imageCreditUrl: string;
+}
+
+export interface ICategories {
+  title: string;
+}
+
+export interface IPageContextPage {
+  categories: ICategories[];
+  title: string;
+  slug: {
+    current: string;
+  };
+}
+
+export interface IPageContext {
+  base: string;
+  next: IPageContextPage;
+  prev: IPageContextPage;
+  slug: string;
 }
