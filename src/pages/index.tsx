@@ -2,7 +2,6 @@ import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Source from "../components/source";
 import { BlogIndex, Contact, Hero, Portfolio } from "../components/tailwind";
 import { BlogPostQuery } from "../interfaces";
 
@@ -69,11 +68,6 @@ export default class IndexPage extends React.Component<IndexPageProps> {
         <Portfolio id="portfolio" />
         <BlogIndex blogPosts={blogPostsArray} />
         <Contact />
-        {/* <h1>{this.hello} TypeScript world!</h1>
-        <p>
-          This site is named <strong>{siteName}</strong>
-        </p>
-        <Source description="Interested in details of this site?" /> */}
       </Layout>
     );
   }

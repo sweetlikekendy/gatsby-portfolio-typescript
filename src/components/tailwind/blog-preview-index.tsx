@@ -2,7 +2,7 @@ import * as React from "react";
 import { format } from "date-fns";
 import { Link } from "gatsby";
 import { CategoryTag } from "../../styles";
-
+import "twin.macro";
 interface BlogPreviewIndexProps {
   category: string;
   title: string;
@@ -19,20 +19,20 @@ export default function BlogPreviewIndex({
   slug,
 }: BlogPreviewIndexProps) {
   return (
-    <div className="flex flex-col">
+    <div tw="flex flex-col">
       <div>
-        <Link to={slug} className="inline-block">
+        <Link to={slug} tw="inline-block">
           <CategoryTag category={category} />
         </Link>
       </div>
-      <div className="flex-1">
-        <Link to={slug} className="block mt-4">
-          <p className="text-xl font-semibold text-blueGray-900">{title}</p>
-          <p className="mt-3 text-base text-blueGray-500">{description}</p>
+      <div tw="flex-1">
+        <Link to={slug} tw="block mt-4">
+          <p tw="text-xl font-semibold text-blueGray-900">{title}</p>
+          <p tw="mt-3 text-base text-blueGray-500">{description}</p>
         </Link>
       </div>
-      <div className="mt-6 flex items-center justify-between">
-        <div className="flex space-x-1 text-sm text-blueGray-500">
+      <div tw="mt-6 flex items-center justify-between">
+        <div tw="flex space-x-1 text-sm text-blueGray-500">
           <time dateTime={createdAt}>
             {format(new Date(createdAt), `MMM d, yyyy`)}
           </time>

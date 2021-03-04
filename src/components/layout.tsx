@@ -5,10 +5,6 @@ import { Header, Footer } from "./tailwind";
 import { ChildrenProps } from "../interfaces";
 
 const MainLayout = ({ children, ...rest }: ChildrenProps) => {
-  const [showWebsiteStatusBanner, setShowWebsiteStatusBanner] = React.useState(
-    true
-  );
-
   return (
     <>
       <Global
@@ -36,43 +32,22 @@ const MainLayout = ({ children, ...rest }: ChildrenProps) => {
           }
         `}
       />
-      {/* {showWebsiteStatusBanner && ( */}
-      <div className="flex bg-blue-900 p-4 text-white uppercase text-center">
-        <div className="max-w-6xl flex mx-auto flex items-center">
-          <p className="text-sm">
+
+      <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
+        <div tw="max-w-6xl flex mx-auto flex items-center">
+          <p tw="text-sm">
             If you notice anything not working or out of place, that is because
             my website is currently undergoing some changes
           </p>
-          {/* <button
-              type="button"
-              stripHash
-              className="ml-3 inline-flex items-center p-2 rounded-md justify-center text-blueGray-100 hover:text-blueGray-700 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-              onClick={() => handleWebsitStatusBanner()}
-            >
-              <span className="sr-only">Close banner</span>
-              <CgClose className="w-5 h-5" />
-            </button> */}
         </div>
       </div>
-      {/* )} */}
+
       {/* FLex in a column and have the main content grow to keep the footer always at the bottom of the page */}
-      <div className="flex flex-col min-h-screen">
+      <div tw="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main tw="flex-grow">{children}</main>
         <Footer />
       </div>
-      {/* <div
-    style={{
-      margin: `0 auto`,
-      marginBottom: rhythm(1.5),
-      marginTop: rhythm(1.5),
-      maxWidth: 650,
-      paddingLeft: rhythm(3 / 4),
-      paddingRight: rhythm(3 / 4),
-    }}
-    >
-    {children}
-  </div> */}
     </>
   );
 };

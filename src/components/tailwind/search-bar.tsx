@@ -1,7 +1,6 @@
 import * as React from "react";
 import "twin.macro";
 import { HiOutlineSearch } from "react-icons/hi";
-
 export interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;

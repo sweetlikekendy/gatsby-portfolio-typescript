@@ -5,9 +5,8 @@ module.exports = {
     siteUrl: `https://www.kendyhnguyen.com`,
     title: `Kendy Nguyen`,
     description: `Kendy Nguyen's Portfolio`,
-    author: `@kendynguyen`,
+    author: `@sweetlikekendy`,
     siteName: `Kendy Nguyen`,
-    exampleUrl: `https://github.com/gatsbyjs/gatsby/tree/master/examples/using-typescript`,
   },
   plugins: [
     // `gatsby-plugin-typescript` is automatically included in gatsby
@@ -25,9 +24,18 @@ module.exports = {
     `gatsby-plugin-anchor-links`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-emotion`,
     `gatsby-plugin-advanced-sitemap`,
-
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts the following options, all of which are defined by `@emotion/babel-plugin` plugin.
+        // The values for each key in this example are the defaults the plugin uses.
+        sourceMap: true,
+        autoLabel: "dev-only",
+        labelFormat: `[local]`,
+        cssPropOptimization: true,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

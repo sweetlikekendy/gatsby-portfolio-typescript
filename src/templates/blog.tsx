@@ -51,7 +51,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
   return (
     <Layout>
       <SEO title="Blog Posts" description="Kendy's Blogs" />
-      <div className="max-w-6xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
+      <div tw="max-w-6xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
         <div tw="relative">
           <SearchBar
             searchQuery={searchQuery}
@@ -61,15 +61,15 @@ export default function Blog({ data, pageContext }: BlogProps) {
         </div>
         <section>
           {totalNumOfPosts === 0 ? (
-            <div className="text-blueGray-500 text-base">
-              <h2 className="text-blueGray-800 text-6xl mb-5">
+            <div tw="text-blueGray-500 text-base">
+              <h2 tw="text-blueGray-800 text-6xl mb-5">
                 No blogs have been written just yet!
               </h2>
-              <p className="text-2xl mb-10">
+              <p tw="text-2xl mb-10">
                 Sorry, but I have not written any blog posts. Stay tuned for
                 upcoming blog posts!
               </p>
-              <p className="text-2xl">
+              <p tw="text-2xl">
                 You can
                 <Link to="/">
                   <StyledLink> return to the home page, </StyledLink>
@@ -86,7 +86,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
               </p>
             </div>
           ) : (
-            <div className="my-0 grid gap-16 py-12 sm:my-6 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
+            <div tw="my-0 grid gap-16 py-12 sm:my-6 lg:grid-cols-3 lg:gap-x-5 lg:gap-y-12">
               {blogPostsArray.map((post) => (
                 <BlogPreview
                   key={post.title}
