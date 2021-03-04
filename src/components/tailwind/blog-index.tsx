@@ -1,17 +1,17 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { BlogPreviewIndex } from ".";
-import { StyledLink } from "../../styles";
-import "twin.macro";
+import * as React from "react"
+import { Link } from "gatsby"
+import BlogPreviewIndex from "./blog-preview-index"
+import { StyledLink } from "../../styles"
+import "twin.macro"
 
 export interface BlogIndexProps {
   blogPosts: {
-    title: string;
-    categories: { title: string }[];
-    description: string;
-    _createdAt: string;
-    slug: { current: string };
-  }[];
+    title: string
+    categories: { title: string }[]
+    description: string
+    _createdAt: string
+    slug: { current: string }
+  }[]
 }
 
 export default function BlogIndex({ blogPosts }: BlogIndexProps) {
@@ -43,5 +43,5 @@ export default function BlogIndex({ blogPosts }: BlogIndexProps) {
         </div>
       </div>
     </div>
-  );
+  )
 }

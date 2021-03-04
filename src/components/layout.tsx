@@ -1,10 +1,10 @@
-import * as React from "react";
-import { Global, css } from "@emotion/react";
-import "twin.macro";
-import { Header, Footer } from "./tailwind";
-import { ChildrenProps } from "../interfaces";
+import * as React from "react"
+import { Global, css } from "@emotion/react"
+import "twin.macro"
+import { Header, Footer } from "./tailwind"
+import { ChildrenProps } from "../interfaces"
 
-const MainLayout = ({ children, ...rest }: ChildrenProps) => {
+const MainLayout = ({ children }: ChildrenProps) => {
   return (
     <>
       <Global
@@ -36,8 +36,8 @@ const MainLayout = ({ children, ...rest }: ChildrenProps) => {
       <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
         <div tw="max-w-6xl flex mx-auto flex items-center">
           <p tw="text-sm">
-            If you notice anything not working or out of place, that is because
-            my website is currently undergoing some changes
+            If you notice anything not working or out of place, that is because my website is currently undergoing some
+            changes
           </p>
         </div>
       </div>
@@ -49,7 +49,7 @@ const MainLayout = ({ children, ...rest }: ChildrenProps) => {
         <Footer />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default MainLayout

@@ -1,35 +1,15 @@
-// export * from "./header";
-// export * from "./footer";
-import BlogIndex from "./blog-index";
-import BlogPaginationNav from "./blog-pagination-nav";
-import BlogPreview from "./blog-preview";
-import BlogPreviewIndex from "./blog-preview-index";
-// import BrandAuthority from "./brand-authority";
-import Contact from "./contact";
-import ContactConfirmationModal from "./contact-confirmation-modal";
-// import FeatureSection from "./feature-section";
-import Footer from "./footer";
-import Header from "./header";
-import Hero from "./hero";
-import PortfolioCard from "./portfolio-card";
-import Portfolio from "./portfolio";
-import SearchBar from "./search-bar";
-import SearchResults from "./search-results";
-
-export {
-  BlogIndex,
-  BlogPaginationNav,
-  BlogPreview,
-  BlogPreviewIndex,
-  //   BrandAuthority,
-  Contact,
-  ContactConfirmationModal,
-  //   FeatureSection,
-  Footer,
-  Header,
-  Hero,
-  PortfolioCard,
-  Portfolio,
-  SearchBar,
-  SearchResults,
-};
+export { default as BlogIndex } from "./blog-index"
+export { default as BlogPaginationNav } from "./blog-pagination-nav"
+export { default as BlogPreview } from "./blog-preview"
+export { default as BlogPreviewIndex } from "./blog-preview-index"
+// export { default as BrandAuthority } from "./brand-authority"
+export { default as Contact } from "./contact"
+export { default as ContactConfirmationModal } from "./contact-confirmation-modal"
+// export { default as FeatureSection } from "./feature-section"
+export { default as Footer } from "./footer"
+export { default as Header } from "./header"
+export { default as Hero } from "./hero"
+export { default as PortfolioCard } from "./portfolio-card"
+export { default as Portfolio } from "./portfolio"
+export { default as SearchBar } from "./search-bar"
+export { default as SearchResults } from "./search-results"
