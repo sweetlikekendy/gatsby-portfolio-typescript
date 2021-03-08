@@ -93,5 +93,11 @@
   },
   "bugs": {
     "url": "https://github.com/sweetlikekendy/gatsby-portfolio-typescript/issues"
+  },
+  "babelMacros": {
+    "twin": {
+      "preset": "emotion",
+      "config": "./src/tailwind.config.js"
+    }
   }
 }

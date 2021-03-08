@@ -1,12 +1,24 @@
-import * as React from "react"
-import { Global, css } from "@emotion/react"
-import "twin.macro"
-import { Header, Footer } from "./tailwind"
-import { ChildrenProps } from "../interfaces"
+import * as React from "react";
+import { Global, css } from "@emotion/react";
+import "twin.macro";
+import { Header, Footer } from "./tailwind";
+import { ChildrenProps } from "../interfaces";
+import { GlobalStyles } from "twin.macro";
 
 const MainLayout = ({ children }: ChildrenProps) => {
+  const [scrolledHeight, setScrolledHeight] = React.useState(0);
+
+  const findScrolledHeight = () => {
+    const yScrollAmount = window.scrollY;
+    return setScrolledHeight(yScrollAmount);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", findScrolledHeight);
+  }, [scrolledHeight]);
   return (
     <>
+      {/* <GlobalStyles /> */}
       <Global
         styles={css`
           html {
@@ -34,22 +46,22 @@ const MainLayout = ({ children }: ChildrenProps) => {
       />
 
       <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
-        <div tw="max-w-6xl flex mx-auto flex items-center">
+        <div tw="max-w-6xl flex mx-auto items-center">
           <p tw="text-sm">
-            If you notice anything not working or out of place, that is because my website is currently undergoing some
-            changes
+            If you notice anything not working or out of place, that is because
+            my website is currently undergoing some changes
           </p>
         </div>
       </div>
 
       {/* FLex in a column and have the main content grow to keep the footer always at the bottom of the page */}
       <div tw="flex flex-col min-h-screen">
-        <Header />
+        <Header scrolledHeight={scrolledHeight} />
         <main tw="flex-grow">{children}</main>
         <Footer />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;

@@ -9,21 +9,15 @@ import {
 } from "../../styles";
 import "twin.macro";
 
-export default function Header() {
-  const [scrolledHeight, setScrolledHeight] = React.useState(0);
+export interface HeaderProps {
+  scrolledHeight: number;
+}
+
+export default function Header({ scrolledHeight }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
 
-  const findScrolledHeight = () => {
-    const yScrollAmount = window.scrollY;
-    return setScrolledHeight(yScrollAmount);
-  };
-
   const handleMobileMenuToggle = () => setOpen(!open);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", findScrolledHeight);
-  }, [scrolledHeight]);
-
+  s;
   return (
     <div
       tw=" flex-shrink-0 bg-white"
@@ -45,14 +39,14 @@ export default function Header() {
           <button
             type="button"
             tw="bg-white rounded-md p-2 inline-flex items-center justify-center text-blueGray-600 hover:text-blueGray-700 hover:bg-blueGray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-            onClick={() => handleMobileMenuToggle()}
+            onClick={handleMobileMenuToggle}
           >
             <span tw="sr-only">Open menu</span>
             <GrMenu tw="h-6 w-6" />
           </button>
         </div>
 
-        <nav tw="flex space-x-10 hidden md:block">
+        <nav tw="space-x-10 hidden md:block">
           <div tw="flex items-center md:ml-12">
             <PartialNavLink to="/blog">Blog</PartialNavLink>
             <AnchorLink
@@ -63,7 +57,7 @@ export default function Header() {
             >
               Portfolio
             </AnchorLink>
-            <div tw="ml-8 inline-flex items-center justify-center ">
+            <div tw="ml-2 inline-flex items-center justify-center ">
               <ExternalSecondaryButton
                 href="mailto:kendyhnguyen1991@gmail.com"
                 isSmall

@@ -65,7 +65,7 @@ module.exports = {
         transition: "background-size",
       },
       width: {
-        "45%": "45%",
+        "45/100": "45%",
       },
     },
   },
