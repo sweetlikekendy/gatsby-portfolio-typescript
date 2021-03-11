@@ -2,11 +2,7 @@ import * as React from "react";
 import { Link } from "gatsby";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { GrClose, GrMenu } from "react-icons/gr";
-import {
-  ExternalSecondaryButton,
-  PartialNavLink,
-  ExternalPrimaryButton,
-} from "../../styles";
+import { ExternalSecondaryButton, PartialNavLink, ExternalPrimaryButton } from "../../styles";
 import "twin.macro";
 
 export interface HeaderProps {
@@ -17,21 +13,14 @@ export default function Header({ scrolledHeight }: HeaderProps) {
   const [open, setOpen] = React.useState(false);
 
   const handleMobileMenuToggle = () => setOpen(!open);
-  s;
+
   return (
-    <div
-      tw=" flex-shrink-0 bg-white"
-      className={`sticky top-0 z-20 ${
-        scrolledHeight > 100 && `shadow-md`
-      } relative`}
-    >
+    <div tw=" flex-shrink-0 bg-white" className={`sticky top-0 z-20 ${scrolledHeight > 100 && `shadow-md`} relative`}>
       <div tw="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-4 sm:px-8 md:space-x-10 lg:py-5">
         <div>
           <Link to="/" tw="flex">
             <span tw="sr-only">Home</span>
-            <p tw="text-3xl font-bold text-blue-700 tracking-wider md:text-4xl lg:text-6xl">
-              KN
-            </p>
+            <p tw="text-3xl font-bold text-blue-700 tracking-wider md:text-4xl lg:text-6xl">KN</p>
           </Link>
         </div>
         {/* <div tw="-mr-2 -my-2 md:hidden"> */}
@@ -58,10 +47,7 @@ export default function Header({ scrolledHeight }: HeaderProps) {
               Portfolio
             </AnchorLink>
             <div tw="ml-2 inline-flex items-center justify-center ">
-              <ExternalSecondaryButton
-                href="mailto:kendyhnguyen1991@gmail.com"
-                isSmall
-              >
+              <ExternalSecondaryButton href="mailto:kendyhnguyen1991@gmail.com" isSmall>
                 {" "}
                 Contact me{" "}
               </ExternalSecondaryButton>
@@ -82,9 +68,7 @@ export default function Header({ scrolledHeight }: HeaderProps) {
                 <div>
                   <Link to="/" tw="flex">
                     <span tw="sr-only">Home</span>
-                    <p tw="text-3xl font-bold text-blue-700 tracking-wider">
-                      KN
-                    </p>
+                    <p tw="text-3xl font-bold text-blue-700 tracking-wider">KN</p>
                   </Link>
                 </div>
                 <div tw="-mr-2">
@@ -112,9 +96,7 @@ export default function Header({ scrolledHeight }: HeaderProps) {
               </div>
             </div>
             <div tw="py-6 px-5">
-              <ExternalPrimaryButton href="mailto:kendyhnguyen1991@gmail.com">
-                Contact Me
-              </ExternalPrimaryButton>
+              <ExternalPrimaryButton href="mailto:kendyhnguyen1991@gmail.com">Contact Me</ExternalPrimaryButton>
             </div>
           </div>
         </div>
