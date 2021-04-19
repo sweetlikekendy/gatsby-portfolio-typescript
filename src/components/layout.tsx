@@ -47,10 +47,7 @@ const MainLayout = ({ children }: ChildrenProps) => {
 
       <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
         <div tw="max-w-6xl flex mx-auto items-center">
-          <p tw="text-sm">
-            If you notice anything not working or out of place, that is because
-            my website is currently undergoing some changes
-          </p>
+          <p tw="text-sm">Website is currently under construction.</p>
         </div>
       </div>
 
