@@ -45,11 +45,13 @@ const MainLayout = ({ children }: ChildrenProps) => {
         `}
       />
 
-      <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
-        <div tw="max-w-6xl flex mx-auto items-center">
-          <p tw="text-sm">Website is currently under construction.</p>
+      {/* {bannerMessage && (
+        <div tw="flex bg-blue-900 p-4 text-white uppercase text-center">
+          <div tw="max-w-6xl flex mx-auto items-center">
+            <p tw="text-sm">Website is currently under construction.</p>
+          </div>
         </div>
-      </div>
+      )} */}
 
       {/* FLex in a column and have the main content grow to keep the footer always at the bottom of the page */}
       <div tw="flex flex-col min-h-screen">
