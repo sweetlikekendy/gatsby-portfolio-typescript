@@ -7,23 +7,15 @@ interface BlogPreviewIndexProps {
   category: string;
   title: string;
   description: string;
-  createdAt: string;
+  publishedAt: string;
   slug: string;
 }
 
-export default function BlogPreviewIndex({
-  category,
-  title,
-  description,
-  createdAt,
-  slug,
-}: BlogPreviewIndexProps) {
+export default function BlogPreviewIndex({ category, title, description, publishedAt, slug }: BlogPreviewIndexProps) {
   return (
     <div tw="flex flex-col">
       <div>
-        <Link to={slug} tw="inline-block">
-          <CategoryTag category={category} />
-        </Link>
+        <CategoryTag category={category} />
       </div>
       <div tw="flex-1">
         <Link to={slug} tw="block mt-4">
@@ -33,9 +25,7 @@ export default function BlogPreviewIndex({
       </div>
       <div tw="mt-6 flex items-center justify-between">
         <div tw="flex space-x-1 text-sm text-blueGray-500">
-          <time dateTime={createdAt}>
-            {format(new Date(createdAt), `MMM d, yyyy`)}
-          </time>
+          <time dateTime={publishedAt}>{format(new Date(publishedAt), `MMM d, yyyy`)}</time>
           {/* <span aria-hidden="true">&middot;</span> */}
           {/* <span>6 min read</span> */}
         </div>
