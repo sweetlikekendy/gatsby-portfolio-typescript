@@ -20,17 +20,17 @@ export default function PortableBlockContent({ blocks }: BlockContentProps) {
         h4,
         h5,
         h6 {
-          ${tw`mb-5 sm:mb-6 lg:mb-7`}
+          ${tw`mb-3 sm:mb-4 lg:mb-5`}
         }
 
         h2 {
-          ${tw`text-2xl sm:text-3xl lg:text-4xl`}
+          ${tw`text-2xl sm:text-3xl`}
         }
         h3 {
-          ${tw`text-xl sm:text-2xl lg:text-3xl`}
+          ${tw`text-xl sm:text-2xl`}
         }
         h4 {
-          ${tw`text-lg sm:text-xl lg:text-2xl`}
+          ${tw`text-lg sm:text-xl`}
         }
 
         p,
@@ -39,6 +39,10 @@ export default function PortableBlockContent({ blocks }: BlockContentProps) {
         figure,
         pre {
           ${tw`mb-4 sm:mb-5 lg:mb-6`}
+        }
+
+        a {
+          ${tw`text-blue-500`}
         }
       `}
       blocks={blocks}
