@@ -1,6 +1,16 @@
 {
   "projects": [
     {
+      "title": "Todo List Application",
+      "techStack": ["react", "node.js", "express", "postgresql", "heroku"],
+      "imgSrc": "../images/pern-todo.png",
+      "imgAlt": "Todo List Application built by Kendy Nguyen Preview",
+      "type": "Personal Project",
+      "description": "A todo list application with user registration.",
+      "demoLink": "https://client-todo-9410.herokuapp.com/",
+      "repoLink": "https://github.com/sweetlikekendy/pern-todo"
+    },
+    {
       "title": "Chinatown Community Development Center",
       "techStack": ["html5", "css3"],
       "imgSrc": "../images/ccdc.png",
@@ -29,15 +39,7 @@
     },
     {
       "title": "Smart Landscape SD",
-      "techStack": [
-        "html5",
-        "css3",
-        "javascript",
-        "react",
-        "gatsby",
-        "sanity",
-        "netlify"
-      ],
+      "techStack": ["html5", "css3", "javascript", "react", "gatsby", "sanity", "netlify"],
       "imgSrc": "../images/smartlandscape.png",
       "imgAlt": "Smart Landscape SD Preview",
       "type": "Client Work",
@@ -46,38 +48,12 @@
     },
     {
       "title": "Calvine Landscape",
-      "techStack": [
-        "html5",
-        "css3",
-        "javascript",
-        "react",
-        "gatsby",
-        "sanity",
-        "netlify"
-      ],
+      "techStack": ["html5", "css3", "javascript", "react", "gatsby", "sanity", "netlify"],
       "imgSrc": "../images/calvine landscape.png",
       "imgAlt": "Calvine Landscape SD Preview",
       "type": "Client Work",
       "description": "Redesigned a client's landscaping business page. Using Gatsby as a foundation, page speed greatly increased.",
       "demoLink": "http://calvinelandscape.com/"
-    },
-    {
-      "title": "Let Me In",
-      "techStack": [
-        "html5",
-        "css3",
-        "javascript",
-        "react",
-        "node",
-        "express",
-        "mongodb"
-      ],
-      "imgSrc": "../images/let-me-in.png",
-      "imgAlt": "Let Me In Preview",
-      "type": "Personal Project",
-      "description": "A CRUD application that allows a user to add a home to a database with the corresponding gate/access code. The user will be able to search for the home when they're on route. The search mechanics are case-sensitive.",
-      "demoLink": "https://protected-oasis-33800.herokuapp.com/",
-      "repoLink": "https://github.com/sweetlikekendy/access-house-react-express-mongo"
     }
   ]
 }

@@ -7,6 +7,7 @@ import "twin.macro";
 export interface PortfolioCardProps {
   demoLink: string;
   description: string;
+  techStack: Array<string>;
   imgAlt: string;
   imgSrc: {
     childImageSharp: GatsbyImageFluidProps;
@@ -17,6 +18,7 @@ export interface PortfolioCardProps {
 }
 
 export default function PortfolioCard({
+  techStack,
   demoLink,
   description,
   imgAlt,
@@ -40,11 +42,7 @@ export default function PortfolioCard({
             />
           </a>
         ) : (
-          <img
-            tw="h-48 w-full object-cover"
-            src="http://via.placeholder/400/300"
-            alt={imgAlt}
-          />
+          <img tw="h-48 w-full object-cover" src="http://via.placeholder/400/300" alt={imgAlt} />
         )}
       </div>
       {type && title && description && (
@@ -53,16 +51,15 @@ export default function PortfolioCard({
             <p tw="text-sm font-medium text-blue-600">{type}</p>
 
             <div tw="block mt-2">
-              <a
-                href={demoLink}
-                target="_blank"
-                rel="noopener noreferrer nofollow"
-              >
-                <p tw="text-xl font-semibold text-blueGray-900 hover:text-blueGray-500">
-                  {title}
-                </p>
+              <a href={demoLink} target="_blank" rel="noopener noreferrer nofollow">
+                <p tw="text-xl font-semibold text-blueGray-900 hover:text-blueGray-500">{title}</p>
               </a>
               <p tw="mt-3 text-base text-blueGray-500">{description}</p>
+              {/* <div>
+                {techStack.map((tech) => (
+                  <div>{tech}</div>
+                ))}
+              </div> */}
             </div>
           </div>
           <div tw="mt-6 flex items-center">
