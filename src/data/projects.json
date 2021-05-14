@@ -1,12 +1,12 @@
 {
   "projects": [
     {
-      "title": "Todo List Application",
+      "title": "To-do List Application",
       "techStack": ["react", "redux", "node.js", "express", "postgresql", "heroku"],
       "imgSrc": "../images/pern-todo.png",
-      "imgAlt": "Todo List Application built by Kendy Nguyen Preview",
+      "imgAlt": "To-do List Application built by Kendy Nguyen Preview",
       "type": "Personal Project",
-      "description": "A todo list application with user registration.",
+      "description": "A to-do list application with user registration.",
       "demoLink": "https://client-todo-9410.herokuapp.com/",
       "repoLink": "https://github.com/sweetlikekendy/pern-todo"
     },
