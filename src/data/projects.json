@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "Todo List Application",
-      "techStack": ["react", "node.js", "express", "postgresql", "heroku"],
+      "techStack": ["react", "redux", "node.js", "express", "postgresql", "heroku"],
       "imgSrc": "../images/pern-todo.png",
       "imgAlt": "Todo List Application built by Kendy Nguyen Preview",
       "type": "Personal Project",
