@@ -44,6 +44,14 @@ export default function PortableBlockContent({ blocks }: BlockContentProps) {
         a {
           ${tw`text-blue-500`}
         }
+        code {
+          ${tw`bg-blueGray-100 p-1 rounded-md`}
+        }
+
+        pre code {
+          background-color: transparent;
+        }
+        ${tw`break-words`}
       `}
       blocks={blocks}
       serializers={serializers}
