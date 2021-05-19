@@ -11,9 +11,16 @@ interface BlogPreviewIndexProps {
   slug: string;
 }
 
-export default function BlogPreviewIndex({ category, title, description, publishedAt, slug }: BlogPreviewIndexProps) {
+export default function BlogPreviewIndex({
+  category,
+  title,
+  description,
+  publishedAt,
+  slug,
+  ...props
+}: BlogPreviewIndexProps) {
   return (
-    <div tw="flex flex-col">
+    <div tw="flex flex-col" {...props}>
       <div>
         <CategoryTag category={category} />
       </div>
