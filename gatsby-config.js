@@ -7,6 +7,7 @@ module.exports = {
     description: `Kendy Nguyen's Portfolio`,
     author: `@sweetlikekendy`,
     siteName: `Kendy Nguyen`,
+    image: `src/images/lucas-davies-uxIU0kYGu-k-unsplash.jpg`,
   },
   plugins: [
     // `gatsby-plugin-typescript` is automatically included in gatsby
@@ -105,15 +106,7 @@ module.exports = {
           `,
         ref: `slug`,
         index: [`title`, `description`, `text`],
-        store: [
-          `title`,
-          `slug`,
-          `description`,
-          `publishedAt`,
-          `author`,
-          `category`,
-          `text`,
-        ],
+        store: [`title`, `slug`, `description`, `publishedAt`, `author`, `category`, `text`],
         normalizer: ({ data }) =>
           data.posts.nodes.map((post) => ({
             title: post.title,

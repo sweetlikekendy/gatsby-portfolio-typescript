@@ -15,12 +15,7 @@ export interface SEOProps {
   title: string;
 }
 
-export default function SEO({
-  description = ``,
-  lang = `en`,
-  meta = [],
-  title = ``,
-}: SEOProps) {
+export default function SEO({ description = ``, lang = `en`, meta = [], title = `` }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -29,6 +24,7 @@ export default function SEO({
             title
             description
             author
+            image
           }
         }
       }
@@ -43,7 +39,7 @@ export default function SEO({
         lang,
       }}
       title={title}
-      titleTemplate={`${site.siteMetadata.title}`}
+      titleTemplate={`${site.siteMetadata?.title}`}
       meta={[
         {
           name: `description`,
@@ -62,12 +58,16 @@ export default function SEO({
           content: `website`,
         },
         {
+          property: `og:image`,
+          content: site.siteMetadata?.image,
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata?.author,
         },
         {
           name: `twitter:title`,
@@ -76,6 +76,10 @@ export default function SEO({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          property: `twitter:image`,
+          content: site.siteMetadata?.image,
         },
       ].concat(meta)}
     />
