@@ -9,6 +9,7 @@ import Layout from "../components/layout";
 import PortableBlockContent from "../components/portable-block-content";
 import { CategoryTag, StyledLink } from "../styles";
 import { PostData, PageContext } from "../interfaces";
+import SEO from "../components/seo";
 
 export interface BlogPostProps {
   data: {
@@ -19,20 +20,20 @@ export interface BlogPostProps {
 
 export default function Post({ data, pageContext }: BlogPostProps) {
   const { post } = data;
+  console.log(post);
+  const { description, title, mainImage } = post;
+  const { asset } = mainImage;
+  const { fluid } = asset;
+  const { srcWebp } = fluid;
   const { prev, next, base } = pageContext;
-
   return (
     <Layout>
+      <SEO title={title} description={description} image={srcWebp} />
       <div tw="max-w-3xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
         <div tw="mb-8 sm:mb-9 lg:mb-10">
           <CategoryTag category={post.categories[0].title} />
-          <h1 tw="pb-2 text-blueGray-900 text-5xl leading-tight mb-1">
-            {post.title}
-          </h1>
-          <time
-            dateTime={post.publishedAt}
-            tw="py-1 text-blueGray-500 text-sm font-normal"
-          >
+          <h1 tw="pb-2 text-blueGray-900 text-5xl leading-tight mb-1">{post.title}</h1>
+          <time dateTime={post.publishedAt} tw="py-1 text-blueGray-500 text-sm font-normal">
             {format(new Date(post.publishedAt), `MMM d, yyyy`)}
           </time>
         </div>
@@ -46,22 +47,15 @@ export default function Post({ data, pageContext }: BlogPostProps) {
           </figure>
           <figcaption tw=" text-blueGray-500 italic sm:text-center">
             {post.mainImage.caption}
-            {post.mainImage.imageCreditPhotographer &&
-              post.mainImage.imageCreditUrl && (
-                <span>
-                  . Photographed by{" "}
-                  <a
-                    href={post.mainImage.imageCreditUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <StyledLink>
-                      {post.mainImage.imageCreditPhotographer}
-                    </StyledLink>
-                  </a>
-                  .
-                </span>
-              )}
+            {post.mainImage.imageCreditPhotographer && post.mainImage.imageCreditUrl && (
+              <span>
+                . Photographed by{" "}
+                <a href={post.mainImage.imageCreditUrl} target="_blank" rel="noopener noreferrer">
+                  <StyledLink>{post.mainImage.imageCreditPhotographer}</StyledLink>
+                </a>
+                .
+              </span>
+            )}
           </figcaption>
         </div>
         <div tw="py-4 text-blueGray-500">
@@ -117,6 +111,7 @@ export const query = graphql`
       categories {
         title
       }
+      description
       mainImage {
         imageCreditUrl
         imageCreditPhotographer

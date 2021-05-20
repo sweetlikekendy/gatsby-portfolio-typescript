@@ -13,9 +13,10 @@ export interface SEOProps {
   lang?: string;
   meta?: [];
   title: string;
+  image?: string;
 }
 
-export default function SEO({ description = ``, lang = `en`, meta = [], title = `` }: SEOProps) {
+export default function SEO({ description = ``, lang = `en`, meta = [], title = ``, image = `` }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -31,7 +32,8 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || site.siteMetadata?.description;
+  const metaImage = image || site.siteMetadata?.image;
 
   return (
     <Helmet
@@ -59,7 +61,7 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
         },
         {
           property: `og:image`,
-          content: site.siteMetadata?.image,
+          content: metaImage,
         },
         {
           name: `twitter:card`,
@@ -79,7 +81,7 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
         },
         {
           property: `twitter:image`,
-          content: site.siteMetadata?.image,
+          content: metaImage,
         },
       ].concat(meta)}
     />
