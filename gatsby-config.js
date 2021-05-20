@@ -7,7 +7,6 @@ module.exports = {
     description: `Kendy Nguyen's Portfolio`,
     author: `@sweetlikekendy`,
     siteName: `Kendy Nguyen`,
-    image: `src/images/lucas-davies-uxIU0kYGu-k-unsplash.jpg`,
   },
   plugins: [
     // `gatsby-plugin-typescript` is automatically included in gatsby

@@ -9,10 +9,18 @@ import { BlogPostQuery } from "../interfaces";
 // to generate all types from graphQL schema
 interface IndexPageProps extends PageProps {
   data: {
+    seoImage: {
+      childImageSharp: {
+        fluid: {
+          src: string;
+        };
+      };
+    };
     posts: BlogPostQuery;
     site: {
       siteMetadata: {
         siteName: string;
+        image: string;
       };
     };
   };
@@ -25,10 +33,14 @@ export const pageQuery = graphql`
         siteName
       }
     }
-    posts: allSanityPost(
-      limit: 3
-      sort: { fields: [publishedAt], order: [DESC] }
-    ) {
+    seoImage: file(relativePath: { eq: "lucas-davies-uxIU0kYGu-k-unsplash w3000.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    posts: allSanityPost(limit: 3, sort: { fields: [publishedAt], order: [DESC] }) {
       totalCount
       nodes {
         _createdAt
@@ -57,13 +69,16 @@ export const pageQuery = graphql`
 export default class IndexPage extends React.Component<IndexPageProps> {
   readonly hello = `Hello`;
   public render() {
-    const { posts, site } = this.props.data;
+    const { posts, site, seoImage } = this.props.data;
+    const { childImageSharp } = seoImage;
+    const { fluid } = childImageSharp;
+    const { src } = fluid;
     const { siteName } = site.siteMetadata;
     const { nodes: blogPostsArray } = posts;
 
     return (
       <Layout>
-        <SEO title={siteName} description="Kendy Nguyen's Portfolio" />
+        <SEO title={siteName} description="Kendy Nguyen's Portfolio" image={src} />
         <Hero />
         <Portfolio id="portfolio" />
         <BlogIndex blogPosts={blogPostsArray} />

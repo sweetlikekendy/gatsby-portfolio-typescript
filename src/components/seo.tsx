@@ -25,7 +25,6 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
             title
             description
             author
-            image
           }
         }
       }
@@ -33,7 +32,7 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
   );
 
   const metaDescription = description || site.siteMetadata?.description;
-  const metaImage = image || site.siteMetadata?.image;
+  const metaImage = image || ``;
 
   return (
     <Helmet
