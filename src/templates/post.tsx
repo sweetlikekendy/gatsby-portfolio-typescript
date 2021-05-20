@@ -24,11 +24,11 @@ export default function Post({ data, pageContext }: BlogPostProps) {
   const { description, title, mainImage } = post;
   const { asset } = mainImage;
   const { fluid } = asset;
-  const { srcWebp } = fluid;
+  const { src } = fluid;
   const { prev, next, base } = pageContext;
   return (
     <Layout>
-      <SEO title={title} description={description} image={srcWebp} />
+      <SEO title={title} description={description} image={src} />
       <div tw="max-w-3xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
         <div tw="mb-8 sm:mb-9 lg:mb-10">
           <CategoryTag category={post.categories[0].title} />
