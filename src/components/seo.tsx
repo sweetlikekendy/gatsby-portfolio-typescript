@@ -48,10 +48,12 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
           content: metaDescription,
         },
         {
+          name: `title`,
           property: `og:title`,
           content: title,
         },
         {
+          name: `description`,
           property: `og:description`,
           content: metaDescription,
         },
@@ -60,6 +62,7 @@ export default function SEO({ description = ``, lang = `en`, meta = [], title = 
           content: `website`,
         },
         {
+          name: `image`,
           property: `og:image`,
           content: metaImage,
         },
