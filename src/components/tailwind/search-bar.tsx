@@ -6,17 +6,9 @@ export interface SearchBarProps {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function SearchBar({
-  searchQuery,
-  setSearchQuery,
-}: SearchBarProps) {
+export default function SearchBar({ searchQuery, setSearchQuery }: SearchBarProps) {
   return (
-    <form
-      action="/"
-      method="GET"
-      autoComplete="off"
-      tw="relative max-w-2xl mx-auto"
-    >
+    <div tw="relative max-w-2xl mx-auto">
       <label htmlFor="search">
         <span className="sr-only">Search blog posts</span>
       </label>
@@ -24,17 +16,15 @@ export default function SearchBar({
         tw="pr-10 w-full rounded-md text-blueGray-600 placeholder-blueGray-500 border-blueGray-300 focus:placeholder-blueGray-400 focus:ring-blue-500 focus:border-blue-500 focus:shadow-2xl"
         // className={`${textSize} ${fontWeight} ${backgroundColor} ${border}`}
         defaultValue={searchQuery}
-        onInput={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setSearchQuery(e.target.value)
-        }
+        onInput={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
         type="text"
         name="search"
         placeholder="Search my blogs here"
       />
-      <button type="submit" tw="absolute right-0 top-0 mr-4 mt-3">
+      <div tw="absolute right-0 top-0 mr-4 mt-3">
         <HiOutlineSearch tw="text-blueGray-500" />
         <span className="sr-only">Search</span>
-      </button>
-    </form>
+      </div>
+    </div>
   );
 }
