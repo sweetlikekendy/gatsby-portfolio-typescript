@@ -15,7 +15,10 @@ export default function Header({ scrolledHeight }: HeaderProps) {
   const handleMobileMenuToggle = () => setOpen(!open);
 
   return (
-    <div tw=" flex-shrink-0 bg-white" className={`sticky top-0 z-20 ${scrolledHeight > 100 && `shadow-md`} relative`}>
+    <header
+      tw=" flex-shrink-0 bg-white"
+      className={`sticky top-0 z-20 ${scrolledHeight > 100 && `shadow-md`} relative`}
+    >
       <div tw="max-w-6xl mx-auto flex justify-between items-center p-4 sm:py-4 sm:px-8 md:space-x-10 lg:py-5">
         <div>
           <Link to="/" tw="flex">
@@ -101,6 +104,6 @@ export default function Header({ scrolledHeight }: HeaderProps) {
           </div>
         </div>
       )}
-    </div>
+    </header>
   );
 }
