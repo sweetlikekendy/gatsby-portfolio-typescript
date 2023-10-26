@@ -5,12 +5,7 @@ import { useFlexSearch } from "react-use-flexsearch";
 import "twin.macro";
 import SEO from "../components/seo";
 import { StyledLink } from "../styles";
-import {
-  BlogPaginationNav,
-  BlogPreview,
-  SearchBar,
-  SearchResults,
-} from "../components/tailwind";
+import { BlogPaginationNav, BlogPreview, SearchBar, SearchResults } from "../components/tailwind";
 
 import { BlogData, PageContext, StoreFromQuery } from "../interfaces";
 
@@ -46,28 +41,22 @@ export default function Blog({ data, pageContext }: BlogProps) {
   const [searchQuery, setSearchQuery] = useState(query || "");
 
   const results = useFlexSearch(searchQuery, index, store);
-  const searchedPosts = searchQuery ? unflattenResults(results) : posts;
+  // const searchedPosts = searchQuery ? unflattenResults(results) : posts;
 
   return (
     <Layout>
       <SEO title="Blog Posts" description="Kendy's Blogs" />
       <div tw="max-w-6xl mx-auto p-4 sm:px-8 sm:py-16 lg:py-24">
         <div tw="relative">
-          <SearchBar
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
           <SearchResults results={results} />
         </div>
         <section>
           {totalNumOfPosts === 0 ? (
             <div tw="text-blueGray-500 text-base">
-              <h2 tw="text-blueGray-800 text-6xl mb-5">
-                No blogs have been written just yet!
-              </h2>
+              <h2 tw="text-blueGray-800 text-6xl mb-5">No blogs have been written just yet!</h2>
               <p tw="text-2xl mb-10">
-                Sorry, but I have not written any blog posts. Stay tuned for
-                upcoming blog posts!
+                Sorry, but I have not written any blog posts. Stay tuned for upcoming blog posts!
               </p>
               <p tw="text-2xl">
                 You can
@@ -75,11 +64,7 @@ export default function Blog({ data, pageContext }: BlogProps) {
                   <StyledLink> return to the home page, </StyledLink>
                 </Link>
                 or{" "}
-                <a
-                  href="mailto:kendyhnguyen1991@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="mailto:kendyhnguyen1991@gmail.com" target="_blank" rel="noopener noreferrer">
                   <StyledLink>contact me</StyledLink>
                 </a>{" "}
                 if you have any questions.
