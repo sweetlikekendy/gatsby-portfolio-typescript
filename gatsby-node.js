@@ -43,10 +43,7 @@ async function buildPosts({ actions, graphql }) {
     // Loop from 1 to n and create the pages for them
     Array.from({ length: pageCount }).forEach((_, i) => {
       actions.createPage({
-        path:
-          i === 0
-            ? `${base}/${post.slug.current}`
-            : `${base}/${i + 1}/${post.slug.current}`,
+        path: i === 0 ? `${base}/${post.slug.current}` : `${base}/${i + 1}/${post.slug.current}`,
         component: path.resolve("./src/templates/post.tsx"),
         context: {
           slug: post.slug.current,
@@ -56,18 +53,6 @@ async function buildPosts({ actions, graphql }) {
         },
       });
     });
-
-    // Create pages for each post
-    //   actions.createPage({
-    //     path: `${base}/${post.slug.current}`,
-    //     component: path.resolve("./src/templates/post.js"),
-    //     context: {
-    //       slug: post.slug.current,
-    //       prev,
-    //       next,
-    //       base,
-    //     },
-    //   })
   });
 
   // Loop from 1 to n and create the pages for them
