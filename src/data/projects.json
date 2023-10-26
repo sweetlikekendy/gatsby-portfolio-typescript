@@ -7,7 +7,8 @@
       "imgAlt": "Chinatown Community Development Center Preview",
       "type": "Client Work",
       "description": "Redesign of a careers landing page.",
-      "demoLink": "https://chinatowncdc.applytojob.com/apply/"
+      "demoLink": "https://chinatowncdc.applytojob.com/apply/",
+      "repoLink": ""
     },
     {
       "title": "Nanocraft CBD",
@@ -16,7 +17,8 @@
       "imgAlt": "Nanocraft CBD Preview",
       "type": "Client Work",
       "description": "Redesigned product landing pages. Added more features to already existing theme",
-      "demoLink": "http://nanocraftcbd.com/"
+      "demoLink": "http://nanocraftcbd.com/",
+      "repoLink": ""
     },
     {
       "title": "PETLYcbd",
@@ -25,7 +27,8 @@
       "imgAlt": "PETLYcbd Preview",
       "type": "Client Work",
       "description": "Added more features to already existing theme",
-      "demoLink": "http://petlycbd.com/"
+      "demoLink": "http://petlycbd.com/",
+      "repoLink": ""
     },
     {
       "title": "Smart Landscape SD",
@@ -34,7 +37,8 @@
       "imgAlt": "Smart Landscape SD Preview",
       "type": "Client Work",
       "description": "Redesign of another landscaping business page. The form on the old website was not working, redesigned to have form on every single page.",
-      "demoLink": "http://smartlandscapesd.com/"
+      "demoLink": "http://smartlandscapesd.com/",
+      "repoLink": ""
     }
   ]
 }
