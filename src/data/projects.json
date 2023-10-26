@@ -1,16 +1,6 @@
 {
   "projects": [
     {
-      "title": "To-do List Application",
-      "techStack": ["react", "redux", "node.js", "express", "postgresql", "heroku"],
-      "imgSrc": "../images/pern-todo.png",
-      "imgAlt": "To-do List Application built by Kendy Nguyen Preview",
-      "type": "Personal Project",
-      "description": "A to-do list application with user registration.",
-      "demoLink": "https://client-todo-9410.herokuapp.com/",
-      "repoLink": "https://github.com/sweetlikekendy/pern-todo"
-    },
-    {
       "title": "Chinatown Community Development Center",
       "techStack": ["html5", "css3"],
       "imgSrc": "../images/ccdc.png",
@@ -45,15 +35,6 @@
       "type": "Client Work",
       "description": "Redesign of another landscaping business page. The form on the old website was not working, redesigned to have form on every single page.",
       "demoLink": "http://smartlandscapesd.com/"
-    },
-    {
-      "title": "Calvine Landscape",
-      "techStack": ["html5", "css3", "javascript", "react", "gatsby", "sanity", "netlify"],
-      "imgSrc": "../images/calvine landscape.png",
-      "imgAlt": "Calvine Landscape SD Preview",
-      "type": "Client Work",
-      "description": "Redesigned a client's landscaping business page. Using Gatsby as a foundation, page speed greatly increased.",
-      "demoLink": "http://calvinelandscape.com/"
     }
   ]
 }
